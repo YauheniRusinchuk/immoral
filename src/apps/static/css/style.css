@@ -159,3 +159,49 @@
     text-decoration: none;
     margin-left: 10px;
 }
+
+
+.main_container .registration_container {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+}
+
+.registration_container form {
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.registration_container form input[type='text'], input[type='password'] {
+    width: 350px;
+    border: 2px solid grey;
+    border-radius: 20px;
+    padding: 3px 10px;
+    font-size: 12px;
+    font-weight: bold;
+    margin: 10px;
+}
+
+
+.registration_container form button {
+    border: 2px solid grey;
+    background-color: white;
+    border-radius: 20px;
+    padding: 3px 30px;
+    font-size: 10px;
+    font-weight: bold;
+    color: grey;
+    outline: none;
+    cursor: pointer;
+    transition-property: background-color, color;
+    transition-duration: 0.3s;
+}
+
+.registration_container form button:hover {
+    background-color: grey;
+    color: white;
+}

@@ -5,16 +5,13 @@ from src.forms.login.forms import LoginForm
 # Create your views here.
 
 class Login(View):
-    ''' Check Login and '''
-
+    '''  Login page  '''
     def get(self, request, *args, **kwargs):
         if request.user.is_authenticated:
             return redirect('home:home_page')
         else:
             form = LoginForm()
             return render(request, 'login/index.html', {"form" : form})
-
-
 
     def post(self, request, *args, **kwargs):
         form = LoginForm(request.POST)
