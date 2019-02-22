@@ -91,7 +91,7 @@
 
 .login_container_show {
     width: 40%;
-    border: 2px solid white;
+    border: 5px solid white;
     border-radius: 3px;
     position: absolute;
     top:100px;
@@ -99,7 +99,54 @@
     background-color: white;
     display: none;
     box-shadow: 0 0 50px grey;
+    text-align: center;
+    padding: 10px;
 }
+
+.login_container_show form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.login_container_show form input {
+    width: 60%;
+    margin: 10px;
+    border: 2px solid grey;
+    border-radius: 20px;
+    outline: none;
+    background-color: white;
+    padding: 2px 5px;
+    font-size: 12px;
+}
+
+
+.login_container_show form input:focus {
+    border: 2px solid #292828;
+}
+
+
+.login_container_show form button {
+    border: 2px solid grey;
+    background-color: white;
+    border-radius: 20px;
+    padding: 3px 30px;
+    font-size: 10px;
+    font-weight: bold;
+    color: grey;
+    outline: none;
+    cursor: pointer;
+    transition-property: background-color, color;
+    transition-duration: 0.3s;
+}
+
+.login_container_show form button:hover {
+    background-color: grey;
+    color: white;
+}
+
+
 
 
 .img_login_delete {
