@@ -123,7 +123,7 @@
     border-radius: 20px;
     outline: none;
     background-color: white;
-    padding: 2px 5px;
+    padding: 3px 10px;
     font-size: 12px;
 }
 
@@ -150,4 +150,12 @@
 .login_container_show form button:hover {
     background-color: grey;
     color: white;
+}
+
+
+.btn_log_out {
+    font-size: 10px;
+    color: grey;
+    text-decoration: none;
+    margin-left: 10px;
 }

@@ -19,6 +19,7 @@
     <div class="header_info_user">
         {% if user.is_authenticated %}
             <a class="btn_add_new" href="">PLUS NEW</a>
+            <a class="btn_log_out" href="{% url 'home:logout' %}">log out</a>
         {% else %}
             <a  class="btn_login" href="{% url 'home:login_page' %}">login</a>
         {% endif %}
