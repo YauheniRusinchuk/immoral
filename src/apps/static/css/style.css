@@ -1,0 +1,81 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Mina', sans-serif;
+}
+
+.header {
+    position: fixed;
+    left: 0;
+    top:0;
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: white;
+    z-index: 10;
+}
+
+
+.header .header_search input  {
+    width: 250px;
+    border: 2px solid #e6e6e6;
+    padding: 1px 10px;
+    border-radius: 20px;
+    outline: none;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.header .header_search input:focus {
+    border: 2px solid grey;
+}
+
+
+
+.header .header_menu_and_search ul li {
+    display: inline-block;
+    margin: 10px;
+}
+
+.header .header_menu_and_search ul li a {
+    text-decoration: none;
+    font-size: 10px;
+    font-weight: bold;
+    color: #292828;
+}
+
+
+.header_info_user {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.header_info_user img {
+    margin-top: 5px;
+    border-radius: 50%;
+}
+
+
+.header_info_user .btn_add_new {
+    font-size: 8px;
+    font-weight: bold;
+    color: grey;
+    border: 2px solid grey;
+    border-radius: 20px;
+    padding: 3px 20px;
+    margin-left: 10px;
+    text-decoration: none;
+    transition-property: background-color, color;
+    transition-duration: 0.3s;
+}
+
+
+.header_info_user .btn_add_new:hover {
+    background-color: grey;
+    color: white;
+}
