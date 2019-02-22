@@ -88,17 +88,23 @@
     font-weight: bold;
 }
 
+.main_container {
+    margin: 60px auto;
+}
+
+.main_container .login_container {
+    margin: 50px auto;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+
 
 .login_container_show {
     width: 40%;
     border: 5px solid white;
     border-radius: 3px;
-    position: absolute;
-    top:100px;
-    left: 30%;
     background-color: white;
-    display: none;
-    box-shadow: 0 0 50px grey;
     text-align: center;
     padding: 10px;
 }
@@ -144,14 +150,4 @@
 .login_container_show form button:hover {
     background-color: grey;
     color: white;
-}
-
-
-
-
-.img_login_delete {
-    position: absolute;
-    top: -30px;
-    right: -30px;
-    cursor: pointer;
 }

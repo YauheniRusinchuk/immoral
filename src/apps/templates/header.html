@@ -1,9 +1,8 @@
 <div class="header">
-    {% include 'login.html' %}
     <div class="header_menu_and_search">
         <ul>
             <li>
-                <a href="">HOME</a>
+                <a href="{% url 'home:home_page' %}">HOME</a>
             </li>
             <li>
                 <a href="">EVENTS</a>
@@ -21,7 +20,7 @@
         {% if user.is_authenticated %}
             <a class="btn_add_new" href="">PLUS NEW</a>
         {% else %}
-            <a  class="btn_login" href="">login</a>
+            <a  class="btn_login" href="{% url 'home:login_page' %}">login</a>
         {% endif %}
     </div>
 </div>

@@ -6,6 +6,16 @@ from src.forms.login.forms import LoginForm
 
 class Login(View):
     ''' Check Login and '''
+
+    def get(self, request, *args, **kwargs):
+        if request.user.is_authenticated:
+            return redirect('home:home_page')
+        else:
+            form = LoginForm()
+            return render(request, 'login/index.html', {"form" : form})
+
+
+
     def post(self, request, *args, **kwargs):
         form = LoginForm(request.POST)
         if form.is_valid():
@@ -17,5 +27,4 @@ class Login(View):
                 return redirect('home:home_page')
             else:
                 print('Error login')
-                return redirect('home:home_page')
-    
+                return redirect('home:login_page')
