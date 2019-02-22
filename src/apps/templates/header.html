@@ -1,4 +1,5 @@
 <div class="header">
+    {% include 'login.html' %}
     <div class="header_menu_and_search">
         <ul>
             <li>
@@ -17,9 +18,10 @@
     </div>
 
     <div class="header_info_user">
-        <a href="">
-            <img src="https://pp.userapi.com/c845521/v845521265/1958c1/Pwk8qgTbAog.jpg" width="30px" height="30px" />
-        </a>
-        <a class="btn_add_new" href="">PLUS NEW</a>
+        {% if user.is_authenticated %}
+            <a class="btn_add_new" href="">PLUS NEW</a>
+        {% else %}
+            <a  class="btn_login" href="">login</a>
+        {% endif %}
     </div>
 </div>

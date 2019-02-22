@@ -75,7 +75,36 @@
 }
 
 
+
 .header_info_user .btn_add_new:hover {
     background-color: grey;
     color: white;
+}
+
+.header_info_user .btn_login {
+    font-size: 12px;
+    text-decoration: none;
+    color: grey;
+    font-weight: bold;
+}
+
+
+.login_container_show {
+    width: 40%;
+    border: 2px solid white;
+    border-radius: 3px;
+    position: absolute;
+    top:100px;
+    left: 30%;
+    background-color: white;
+    display: none;
+    box-shadow: 0 0 50px grey;
+}
+
+
+.img_login_delete {
+    position: absolute;
+    top: -30px;
+    right: -30px;
+    cursor: pointer;
 }
