@@ -5,7 +5,7 @@
 
 <div class="main_container">
     <div class="registration_container">
-        <form class="">
+        <form class="" method="post" enctype="multipart/form-data"> {% csrf_token %}
             <h4>REGISTRATION</h4>
             <input type="file" name="" value="">
             <input type="text" autocomplete="off" name="login" placeholder="Login ..." value="">
