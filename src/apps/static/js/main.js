@@ -28,8 +28,7 @@ $(function(){
                        $('.error_form').slideUp('fast');
                    }, 2000)
                })
-           }
-
+            }
         })
     })
 })
