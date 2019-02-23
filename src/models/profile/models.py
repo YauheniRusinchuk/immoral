@@ -2,6 +2,7 @@ from django.conf import settings
 from django.db import models
 from django.db.models.signals import pre_save
 from django.utils.text import slugify
+from django.shortcuts import reverse
 
 
 class Profile(models.Model):
@@ -12,7 +13,7 @@ class Profile(models.Model):
 
 
     def get_absolute_url(self):
-        pass
+        return reverse('home:profile_page', kwargs={'slug' : self.slug})
 
     def __str__(self):
         return f"{self.user} Profile"

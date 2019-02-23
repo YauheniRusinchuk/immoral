@@ -18,7 +18,7 @@
 
     <div class="header_info_user">
         {% if user.is_authenticated %}
-            <a href="">
+            <a href="{{user.profile.get_absolute_url}}">
                 <img class="avatar" src="https://pp.userapi.com/c845521/v845521265/1958c1/Pwk8qgTbAog.jpg" width="40px" height="40px" alt="">
             </a>
             <a class="btn_add_new" href="">PLUS NEW</a>
