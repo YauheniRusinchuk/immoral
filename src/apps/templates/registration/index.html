@@ -5,11 +5,10 @@
 
 <div class="main_container">
     <div class="registration_container">
-        <form class="" method="post" enctype="multipart/form-data"> {% csrf_token %}
+        <form class="form_registation" method="post" enctype="multipart/form-data"> {% csrf_token %}
             <h4>REGISTRATION</h4>
-            <input type="file" name="" value="">
-            <input type="text" autocomplete="off" name="login" placeholder="Login ..." value="">
-            <input type="password"autocomplete="off"  name="password" placeholder="Password ..." value="">
+            <input class="registration_login_form" type="text" autocomplete="off" name="login" placeholder="Login ..." value="">
+            <input class="registration_password_form" type="password"autocomplete="off"  name="password" placeholder="Password ..." value="">
             <button type="submit" name="button">REGISTRATION</button>
         </form>
     </div>

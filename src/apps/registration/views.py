@@ -5,12 +5,10 @@ from src.models.profile.models import Profile
 
 class Registration(View):
     ''' Registration view  '''
-
     def get(self, request, *args, **kwargs):
         if request.user.is_authenticated:
             return redirect('home:home_page')
         return render(request, 'registration/index.html', {})
-
 
     def post(self, request, *args, **kwargs):
         username = request.POST.get('login')
