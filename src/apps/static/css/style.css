@@ -215,3 +215,21 @@
     text-decoration: none;
     color: #292828;
 }
+
+.seccess_form {
+    position: absolute;
+    top: 150px;
+    left: 30%;
+    width: 40%;
+    background-color: #18c98e;
+    border-radius: 3px;
+    box-shadow: 0 0 50px grey;
+    padding: 10px;
+    display: none;
+    text-align: center;
+}
+
+.seccess_form p {
+    color: white;
+    font-weight: bold;
+}

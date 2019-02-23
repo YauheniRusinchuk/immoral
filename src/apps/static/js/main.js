@@ -13,7 +13,13 @@ $(function(){
                 csrfmiddlewaretoken : $('input[name=csrfmiddlewaretoken]').val()
             },
             success: function() {
-                console.log('EEEE YRA ...');
+                $('.seccess_form').show('fast', ()=>{
+                    setTimeout(()=>{
+                        $('.seccess_form').hide('fast', ()=>{
+                            window.location.href = window.location.origin + "/login"
+                        });
+                    }, 2000)
+                })
             },
         })
     })

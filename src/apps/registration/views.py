@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, HttpResponse
 from django.contrib.auth.models import User
 from django.views import View
 from src.models.profile.models import Profile
@@ -21,4 +21,4 @@ class Registration(View):
             return HttpResponse('error python')
         profile = Profile(user=user)
         profile.save()
-        return redirect('home:login_page')
+        return HttpResponse('success...')

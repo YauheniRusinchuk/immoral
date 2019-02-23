@@ -4,6 +4,7 @@
 {% block content %}
 
 <div class="main_container">
+    {% include 'seccess_form.html' %}
     <div class="registration_container">
         <form class="form_registation" method="post" enctype="multipart/form-data"> {% csrf_token %}
             <h4>REGISTRATION</h4>
