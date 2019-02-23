@@ -1,3 +1,4 @@
+
 * {
     margin: 0;
     padding: 0;
@@ -56,7 +57,7 @@
 
 
 .header_info_user img {
-    margin-top: 5px;
+    margin-top: 7px;
     border-radius: 50%;
 }
 
@@ -125,6 +126,7 @@
     background-color: white;
     padding: 3px 10px;
     font-size: 12px;
+    font-weight: bold;
 }
 
 
@@ -184,6 +186,7 @@
     font-size: 12px;
     font-weight: bold;
     margin: 10px;
+    outline: none;
 }
 
 
@@ -204,4 +207,11 @@
 .registration_container form button:hover {
     background-color: grey;
     color: white;
+}
+
+
+.registration_btn {
+    font-size: 12px;
+    text-decoration: none;
+    color: #292828;
 }
