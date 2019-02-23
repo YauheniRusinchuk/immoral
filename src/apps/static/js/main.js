@@ -13,14 +13,23 @@ $(function(){
                 csrfmiddlewaretoken : $('input[name=csrfmiddlewaretoken]').val()
             },
             success: function() {
-                $('.seccess_form').show('fast', ()=>{
+                $('.seccess_form').slideDown('fast', ()=>{
                     setTimeout(()=>{
-                        $('.seccess_form').hide('fast', ()=>{
+                        $('.seccess_form').slideUp('fast', ()=>{
                             window.location.href = window.location.origin + "/login"
                         });
                     }, 2000)
                 })
             },
+
+            error: function(error) {
+               $('.error_form').slideDown('fast', ()=>{
+                   setTimeout(()=>{
+                       $('.error_form').slideUp('fast');
+                   }, 2000)
+               })
+           }
+
         })
     })
 })
