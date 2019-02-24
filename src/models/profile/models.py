@@ -17,6 +17,10 @@ class Profile(models.Model):
     def get_absolute_url(self):
         return reverse('home:profile_page', kwargs={'slug' : self.slug})
 
+    def get_absolute_url_settings(self):
+        return reverse('home:settings_page', kwargs={'slug': self.slug})
+
+
     def __str__(self):
         return f"{self.user} Profile"
 
@@ -24,7 +28,7 @@ class Profile(models.Model):
 
 
 def pre_save_profile_receiver(sender, instance, *args, **kwargs):
-    slug = slugify(instance.user.username)
+    slug = slugify(instance.user)
     instance.slug = slug
 
 pre_save.connect(pre_save_profile_receiver, sender=Profile)

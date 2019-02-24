@@ -1,5 +1,5 @@
 {% extends 'home/index.html' %}
-
+{% load static %}
 
 {% block content %}
 <div class="main_container">
@@ -8,7 +8,7 @@
             {% if profile.img %}
                 <img class="avatar" src="{{profile.img.url}}" alt="">
             {% else %}
-                <img class="avatar" src="https://pp.userapi.com/c845521/v845521265/1958c1/Pwk8qgTbAog.jpg" />
+                <img class="avatar" src="https://www.basko.it/photo/noicon.png" />
             {% endif %}
         </div>
 
@@ -16,10 +16,17 @@
             <div class="profile_username">
 
                 <div class="username">
-                    <!-- <img src="img/superuser.png" class="admin" alt=""> -->
+                    {% if profile.is_offical %}
+                        <img src="{% static 'img/superuser.png' %}" class="admin" alt="">
+                    {% else %}
+
+                    {% endif %}
                     <span>{{profile.user.username}}</span>
                 </div>
-                <button type="submit">SETTINGS</button>
+                {% if user == profile.user %}
+                    <a class="btn_settings" href="{{profile.get_absolute_url_settings}}">SETTINGS</a>
+                {% else %}
+                {% endif %}
             </div>
             <div class="profile_descripton">
                 {% if profile.description %}

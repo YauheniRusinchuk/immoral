@@ -319,13 +319,14 @@
 
 }
 
-.profile_username button {
+.profile_username .btn_settings {
     border: 2px solid grey;
     border-radius: 20px;
     font-size: 10px;
     font-weight: bold;
     padding: 2px 30px;
     color: grey;
+    text-decoration: none;
     outline: none;
     background-color: white;
     transition-property: background-color, color;
@@ -333,7 +334,7 @@
 }
 
 
-.profile_username button:hover {
+.profile_username .btn_settings:hover {
     background-color: grey;
     color: white;
     cursor: pointer;
