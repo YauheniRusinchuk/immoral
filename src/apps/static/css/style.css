@@ -61,6 +61,15 @@
     border-radius: 50%;
 }
 
+.header_info_user a {
+    text-decoration: none;
+}
+
+.not_avatar {
+    font-size: 12px;
+    text-decoration: none;
+    color: #292828;
+}
 
 .header_info_user .btn_add_new {
     font-size: 8px;

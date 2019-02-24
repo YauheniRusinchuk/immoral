@@ -19,7 +19,11 @@
     <div class="header_info_user">
         {% if user.is_authenticated %}
             <a href="{{user.profile.get_absolute_url}}">
-                <img class="avatar" src="https://pp.userapi.com/c845521/v845521265/1958c1/Pwk8qgTbAog.jpg" width="40px" height="40px" alt="">
+                {% if user.profile.img %}
+                    <img class="avatar" src="{{user.profile.img.url}}" alt="" width="40px" height="40px" />
+                {% else %}
+                    <p class="not_avatar">Hi <span>{{user.username}}</span></p>
+                {% endif %}
             </a>
             <a class="btn_add_new" href="">PLUS NEW</a>
             <a class="btn_log_out" href="{% url 'home:logout' %}">log out</a>
