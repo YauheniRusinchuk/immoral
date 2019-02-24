@@ -378,7 +378,7 @@
 }
 
 .profile_settings form input {
-    width: 30%;
+    width: 40%;
     padding: 3px 10px;
     border: 2px solid #292828;
     border-radius: 20px;
@@ -386,6 +386,20 @@
     font-size: 12px;
     font-weight: bold;
     margin: 10px;
+}
+
+
+.profile_settings form textarea {
+    width: 40%;
+    height: 200px;
+    padding: 3px 10px;
+    border: 2px solid #292828;
+    border-radius: 2px;
+    outline: none;
+    font-size: 12px;
+    font-weight: bold;
+    margin: 10px;
+    resize: none;
 }
 
 

@@ -1,6 +1,7 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, Http404, reverse
 from django.views import View
 from src.models.profile.models import Profile
+from django.contrib.auth.models import User
 
 
 class ProfileDetail(View):
@@ -21,3 +22,15 @@ class SettingsProfile(View):
             return render(request, 'profile/settings.html', {'profile': profile})
         else:
             return redirect('home:home_page')
+
+    def post(self, request, *args, **kwargs):
+        user = User.objects.get(username=request.user)
+        user.username = request.POST.get('login')
+        profile = Profile.objects.get(user=user)
+        try:
+            user.save()
+        except Exception:
+            return None
+        profile.description = request.POST.get('description')
+        profile.save()
+        return redirect('home:profile_page', slug=profile.slug)
