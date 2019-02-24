@@ -3,7 +3,33 @@
 
 {% block content %}
 <div class="main_container">
-    <h4>PROFILE</h4>
+    <div class="profile_info_container">
+        <div class="profile_avatar">
+            {% if profile.img %}
+                <img class="avatar" src="{{profile.img.url}}" alt="">
+            {% else %}
+                <img class="avatar" src="https://pp.userapi.com/c845521/v845521265/1958c1/Pwk8qgTbAog.jpg" />
+            {% endif %}
+        </div>
+
+        <div class="profie_info">
+            <div class="profile_username">
+
+                <div class="username">
+                    <!-- <img src="img/superuser.png" class="admin" alt=""> -->
+                    <span>{{profile.user.username}}</span>
+                </div>
+                <button type="submit">SETTINGS</button>
+            </div>
+            <div class="profile_descripton">
+                {% if profile.description %}
+                <p>
+                    {{profile.description}}
+                </p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
 
 </div>
 

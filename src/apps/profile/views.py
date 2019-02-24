@@ -9,5 +9,5 @@ class ProfileDetail(View):
             profile = Profile.objects.get(slug=kwargs['slug'])
         except Exception:
             return redirect('home:home_page')
-        print(profile)    
-        return render(request, 'profile/index.html', {})
+        print(profile)
+        return render(request, 'profile/index.html', {'profile': profile})

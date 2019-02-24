@@ -22,16 +22,12 @@
 
 .header .header_search input  {
     width: 250px;
-    border: 2px solid #e6e6e6;
+    border: 2px solid grey;
     padding: 1px 10px;
     border-radius: 20px;
     outline: none;
     font-size: 12px;
     font-weight: bold;
-}
-
-.header .header_search input:focus {
-    border: 2px solid grey;
 }
 
 
@@ -259,4 +255,96 @@
 .error_form p {
     color: white;
     font-weight: bold;
+}
+
+
+
+
+
+.main_container .profile_info_container {
+    width: 70%;
+    height: 200px;
+    margin: 10px auto;
+    display: flex;
+}
+
+
+.main_container .profile_info_container .profile_avatar {
+    width: 30%;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+
+
+.main_container .profile_info_container .profile_avatar .avatar {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    max-width: 100%;
+}
+
+
+.admin {
+    position: absolute;
+    top: 4px;
+    right: -30px;
+}
+
+
+
+.main_container .profile_info_container .profie_info {
+    width: 70%;
+    padding: 30px;
+}
+
+.profie_info .profile_username {
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+}
+
+.username {
+    position: relative;
+}
+
+.profile_username span {
+    font-size: 18px;
+    font-weight: bold;
+
+}
+
+.profile_username button {
+    border: 2px solid grey;
+    border-radius: 20px;
+    font-size: 10px;
+    font-weight: bold;
+    padding: 2px 30px;
+    color: grey;
+    outline: none;
+    background-color: white;
+    transition-property: background-color, color;
+    transition-duration: 0.3s;
+}
+
+
+.profile_username button:hover {
+    background-color: grey;
+    color: white;
+    cursor: pointer;
+}
+
+.profile_descripton {
+
+}
+
+
+.profile_descripton p {
+    font-size: 12px;
+    color: grey;
 }
