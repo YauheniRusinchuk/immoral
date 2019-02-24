@@ -9,6 +9,16 @@
             <h4>Hi, <span class="profile_settings_username">{{profile.user}}</span></h4>
             <p>You can update some fields.</p>
             <form class="" method="post">{% csrf_token %}
+                {% if profile.img %}
+                    <img class='settings_img' src="{{profile.img.url}}" width="200px" height="200px" alt=""><br/>
+                {% else %}
+                    <img class="settings_img" src="https://www.basko.it/photo/noicon.png" width="200px" height="200px" alt=""><br/>
+                {% endif %}
+                <div class="div_file">
+                    <input type="file" name="file" id="file" class="inputfile" /><br/>
+                    <label class="label_file" for="file">NEW PHOTO</label><br/>
+                </div>
+
                 <label for="login_update">LOGIN</label><br/>
                 <input id='login_update' type="text" name="login" placeholder="Login ..." value="{{profile.user}}"><br/>
 
