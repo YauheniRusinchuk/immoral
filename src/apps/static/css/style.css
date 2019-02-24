@@ -349,3 +349,62 @@
     font-size: 12px;
     color: grey;
 }
+
+
+.profile_settings {
+    width: 60%;
+    margin: 10px auto;
+    text-align: center;
+    padding: 10px;
+}
+
+.profile_settings .profile_settings_username {
+    color: grey;
+}
+
+.profile_settings p {
+    font-size: 12px;
+    color: grey;
+    font-weight: bold;
+}
+
+.profile_settings form {
+    margin-top: 20px;
+}
+
+.profile_settings form label {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.profile_settings form input {
+    width: 30%;
+    padding: 3px 10px;
+    border: 2px solid #292828;
+    border-radius: 20px;
+    outline: none;
+    font-size: 12px;
+    font-weight: bold;
+    margin: 10px;
+}
+
+
+.profile_settings form button {
+    border: 2px solid grey;
+    border-radius: 20px;
+    font-size: 10px;
+    font-weight: bold;
+    padding: 2px 30px;
+    color: grey;
+    text-decoration: none;
+    outline: none;
+    background-color: white;
+    transition-property: background-color, color;
+    transition-duration: 0.3s;
+    cursor: pointer;
+}
+
+.profile_settings form button:hover {
+    background-color: grey;
+    color: white;
+}

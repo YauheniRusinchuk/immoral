@@ -18,6 +18,6 @@ class SettingsProfile(View):
     def get(self, request, *args, **kwargs):
         profile = Profile.objects.get(slug=kwargs['slug'])
         if request.user == profile.user:
-            return render(request, 'profile/settings.html', {})
+            return render(request, 'profile/settings.html', {'profile': profile})
         else:
-            return redirect('home:home_page')    
+            return redirect('home:home_page')
