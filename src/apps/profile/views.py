@@ -5,6 +5,7 @@ from django.contrib.auth.models import User
 
 
 class ProfileDetail(View):
+    ''' View Profile Detail page  '''
     def get(self, request, *args, **kwargs):
         try:
             profile = Profile.objects.get(slug=kwargs['slug'])
@@ -27,8 +28,13 @@ class SettingsProfile(View):
         user = User.objects.get(username=request.user)
         user.username = request.POST.get('login')
         profile = Profile.objects.get(user=user)
+        avatar = profile.img
         try:
             user.save()
+            if request.FILES:
+                profile.img = request.FILES['file']
+            else:
+                profile.img = avatar
         except Exception:
             return None
         profile.description = request.POST.get('description')
