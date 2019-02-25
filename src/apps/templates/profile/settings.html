@@ -1,5 +1,5 @@
 {% extends 'home/index.html' %}
-
+{% load static %}
 
 
 {% block content %}
@@ -8,7 +8,7 @@
         <div class="profile_settings">
             <h4>Hi, <span class="profile_settings_username">{{profile.user}}</span></h4>
             <p>You can update some fields.</p>
-            <form class="" method="post">{% csrf_token %}
+            <form class="" method="post" enctype="multipart/form-data">{% csrf_token %}
                 {% if profile.img %}
                     <img class='settings_img' src="{{profile.img.url}}" width="200px" height="200px" alt=""><br/>
                 {% else %}
@@ -29,5 +29,7 @@
             </form>
         </div>
     </div>
+
+<script src="{% static 'js/preloadimg.js' %}" type="text/javascript"></script>
 
 {% endblock %}
