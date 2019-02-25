@@ -109,11 +109,12 @@
 
 .login_container_show {
     width: 40%;
-    border: 5px solid white;
     border-radius: 3px;
     background-color: white;
     text-align: center;
     padding: 10px;
+    margin: 50px auto;
+    box-shadow: 0 0 50px #e6e6e6;
 }
 
 .login_container_show form {
@@ -126,8 +127,9 @@
 .login_container_show form input {
     width: 60%;
     margin: 10px;
-    border: 2px solid #e6e6e6;
-    border-radius: 20px;
+    border: none;
+    border-bottom: 2px solid #e6e6e6;
+    border-radius: 2px;
     outline: none;
     background-color: white;
     padding: 3px 10px;
@@ -137,7 +139,8 @@
 
 
 .login_container_show form input:focus {
-    border: 2px solid #292828;
+    border: none;
+    border-bottom: 2px solid #292828;
 }
 
 
@@ -170,14 +173,18 @@
 
 
 .main_container .registration_container {
+    width: 40%;
     text-align: center;
     display: flex;
     justify-content: center;
     padding: 10px;
+    margin: 100px auto;
+    box-shadow: 0 0 50px #e6e6e6;
+    border-radius: 2px;
+
 }
 
 .registration_container form {
-    margin: 10px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -185,9 +192,10 @@
 }
 
 .registration_container form input[type='text'], input[type='password'] {
-    width: 350px;
-    border: 2px solid #e6e6e6;
-    border-radius: 20px;
+    width: 300px;
+    border: none;
+    border-bottom: 2px solid #e6e6e6;
+    border-radius: 2px;
     padding: 3px 10px;
     font-size: 12px;
     font-weight: bold;
@@ -196,7 +204,8 @@
 }
 
 .registration_container form input[type='text']:focus, input[type='password']:focus {
-    border: 2px solid #292828;
+    border: none;
+    border-bottom: 2px solid #292828;
 }
 
 
@@ -221,10 +230,10 @@
 
 
 .registration_btn {
-    font-size: 12px;
+    font-size: 10px;
     font-weight: bold;
     text-decoration: underline;
-    color: #292828;
+    color: grey;
 }
 
 .seccess_form {
@@ -386,8 +395,9 @@
 .profile_settings form input {
     width: 40%;
     padding: 3px 10px;
-    border: 2px solid #e6e6e6;
-    border-radius: 20px;
+    border: none;
+    border-bottom: 2px solid #e6e6e6;
+    border-radius: 2px;
     outline: none;
     font-size: 12px;
     font-weight: bold;
@@ -395,7 +405,8 @@
 }
 
 .profile_settings form input:focus {
-    border: 2px solid #292828;
+    border: none;
+    border-bottom: 2px solid #292828;
 }
 
 

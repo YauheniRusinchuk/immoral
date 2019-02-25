@@ -36,7 +36,7 @@ class SettingsProfile(View):
             else:
                 profile.img = avatar
         except Exception:
-            return None
+            return redirect('home:settings_page', slug=profile.slug)
         profile.description = request.POST.get('description')
         profile.save()
         return redirect('home:profile_page', slug=profile.slug)

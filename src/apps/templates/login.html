@@ -1,5 +1,6 @@
 {% load static %}
 <div class="login_container_show">
+    <h3>WELCOME!</h3>
     <h4>LOGIN or</h4> <a class="registration_btn" href="{% url 'home:registration_page' %}">registration</a>
     <form method="post">{% csrf_token %}
         {{form}}
