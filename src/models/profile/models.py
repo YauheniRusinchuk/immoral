@@ -3,6 +3,7 @@ from django.db import models
 from django.db.models.signals import pre_save
 from django.utils.text import slugify
 from django.shortcuts import reverse
+import os
 
 
 class Profile(models.Model):
@@ -30,5 +31,17 @@ class Profile(models.Model):
 def pre_save_profile_receiver(sender, instance, *args, **kwargs):
     slug = slugify(instance.user)
     instance.slug = slug
+    if not instance.img:
+         return False
+    old_file = sender.objects.get(user=instance.user).img or None
+
+    if old_file:
+        if not old_file == instance.img:
+            if os.path.isfile(old_file.path):
+                os.remove(old_file.path)
+
+
+
+
 
 pre_save.connect(pre_save_profile_receiver, sender=Profile)
