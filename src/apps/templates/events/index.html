@@ -3,7 +3,17 @@
 {% block content %}
     <div class="main_container">
 
-        <h4>EVENTS</h4>
+        <div class="events_container">
+            {% if user.is_authenticated %}
+                <div class="btn_new_stream">
+                    <button type="button" name="button">NEW STREAM</button>
+                </div>
+            {% else %}
+            {% endif %}
+            <div class="main_events">
+                <span>MAIN</span>
+            </div>
+        </div>
 
     </div>
 

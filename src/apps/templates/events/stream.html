@@ -1,0 +1,43 @@
+{% extends 'home/index.html' %}
+
+
+{% block content %}
+    <div class="main_container">
+
+
+        <div id="container">
+            <video autoplay="true" id="videoElement">
+
+            </video>
+            <div class="btn_video">
+                <button id="start" type="button" name="button">START</button>
+                <button class="stop" type="button" name="button">STOP</button>
+            </div>
+        </div>
+
+
+
+        <div class="chatbox">
+            <div class="chatlogs">
+                <div class="chat">
+                    <div class="user-photo">
+                        <img src="https://pp.userapi.com/c845521/v845521265/1958c1/Pwk8qgTbAog.jpg" alt="">
+                    </div>
+                    <p class="user-message">What's up??</p>
+                </div>
+            </div>
+
+            <div class="chat-form">
+                <input placeholder="Message ..." type="text" name="" value="">
+                <button type="button" name="button">send</button>
+            </div>
+
+        </div>
+
+
+
+
+
+    </div>
+
+{% endblock %}
