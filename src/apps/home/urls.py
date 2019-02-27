@@ -12,5 +12,6 @@ urlpatterns = [
     path('profile/<slug:slug>/settings/', SettingsProfile.as_view(), name='settings_page'),
     path('login/', Login.as_view(), name='login_page'),
     path('registration/', Registration.as_view(), name='registration_page'),
+    path('events/', include('src.apps.events.urls', namespace="events")),
     path('accounts/', include('django.contrib.auth.urls')),
 ]
