@@ -1,5 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views import View
+from src.models.profile.models import Profile
 
 class Events(View):
     ''' Events page  '''
@@ -12,5 +13,4 @@ class EventDetail(View):
     ''' Stream '''
 
     def get(self, request, *args, **kwargs):
-        
         return render(request, 'events/stream.html', {})

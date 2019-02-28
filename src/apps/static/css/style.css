@@ -494,12 +494,13 @@
     text-align: center;
 }
 
-.events_container .btn_new_stream button {
-    border: 2px solid #f56767;
+.events_container .btn_new_stream a {
+    border: 1px solid #f56767;
     background-color: #f56767;
+    text-decoration: none;
     color: white;
     padding: 3px 30px;
-    font-size: 8px;
+    font-size: 10px;
     font-weight: bold;
     border-radius: 20px;
     outline: none;
@@ -518,17 +519,17 @@
 #container {
     position: fixed;
     left: 50px;
-    width: 500px;
+    width: 600px;
     height: 500px;
 }
-#videoElement {
-    width: 500px;
+/* #videoElement {
+    width: 600px;
     height: 375px;
     background-color: #e6e6e6;
-}
+} */
 
 .btn_video {
-    width: 500px;
+    width: 600px;
     text-align: center;
     margin-top: 10px;
 }

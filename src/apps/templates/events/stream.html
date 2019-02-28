@@ -1,5 +1,5 @@
 {% extends 'home/index.html' %}
-
+{% load static %}
 
 {% block content %}
     <div class="main_container">
@@ -10,8 +10,8 @@
 
             </video>
             <div class="btn_video">
-                <button id="start" type="button" name="button">START</button>
-                <button class="stop" type="button" name="button">STOP</button>
+                <button id="start" type="button" name="button">CLICK TO START</button>
+                <button id="stop" type="button" name="button">STOP</button>
             </div>
         </div>
 
@@ -25,19 +25,16 @@
                     </div>
                     <p class="user-message">What's up??</p>
                 </div>
-            </div>
 
+            </div>
+            {% if user.is_authenticated %}
             <div class="chat-form">
                 <input placeholder="Message ..." type="text" name="" value="">
                 <button type="button" name="button">send</button>
             </div>
-
+            {% else %}
+            {% endif %}
         </div>
-
-
-
-
-
     </div>
-
+<script src="{% static 'js/stream.js' %}"></script>
 {% endblock %}
