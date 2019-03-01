@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views import View
 from src.models.profile.models import Profile
 from src.models.posts.models import Post
@@ -11,3 +11,11 @@ class Home(View):
     def get(self, request, *args, **kwargs):
         posts = Post.objects.all()
         return render(request, 'home/index.html', {"posts": posts})
+
+
+class PlusNew(View):
+    ''' Add new post '''
+    def post(self, request, *args, **kwargs):
+        post = Post(profile=request.user.profile, text=request.POST.get('text'))
+        post.save()
+        return redirect('home:home_page')

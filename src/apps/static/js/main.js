@@ -1,5 +1,10 @@
 $(function(){
 
+    $('.btn_add_new').click((e)=>{
+        e.preventDefault();
+        $('.plusnew_container').slideToggle('fast');
+    })
+
     $('.form_registation').on('submit',(e)=>{
         e.preventDefault();
         console.log("CLICK REGISTATION FORM")

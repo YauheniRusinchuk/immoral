@@ -510,9 +510,9 @@
     margin-top: 10px;
     margin-bottom: 10px;
     padding: 10px;
-    border-radius: 3px;
+    border-radius: 10px;
     border: 1px solid #e6e6e6;
-    box-shadow: 0 0 1px grey;
+    box-shadow: 0 0 30px #e6e6e6;
 }
 
 .item p {
@@ -575,4 +575,54 @@
   .masonry {
     column-count: 1;
   }
+}
+
+
+
+.plusnew_container {
+    position: absolute;
+    top: 100px;
+    left: 30%;
+    background-color: white;
+    width: 40%;
+    box-shadow: 0 0 50px black;
+    display: none;
+    text-align: center;
+    padding: 25px;
+    border-radius: 10px;
+}
+
+.plusnew_container form textarea {
+    width: 100%;
+    height: 200px;
+    resize: none;
+    border: 2px solid #e6e6e6;
+    padding: 10px;
+    font-size: 12px;
+    outline: none;
+    border-radius: 10px;
+}
+
+.plusnew_container form textarea:focus {
+    border: 2px solid #292828;
+}
+
+.plusnew_container form button {
+    padding: 3px 30px;
+    border: 2px solid #292828;
+    border-radius: 20px;
+    font-size: 8px;
+    font-weight: bold;
+    color: #292828;
+    outline: none;
+    cursor: pointer;
+    background-color: white;
+    transition-property: background-color, color;
+    transition-duration: 0.3s;
+}
+
+
+.plusnew_container form button:hover {
+    background-color: #292828;
+    color: white;
 }
