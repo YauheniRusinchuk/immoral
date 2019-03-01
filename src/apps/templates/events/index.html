@@ -4,12 +4,6 @@
     <div class="main_container">
 
         <div class="events_container">
-            {% if user.is_authenticated %}
-                <div class="btn_new_stream">
-                    <a href="{% url 'home:events:stream_page' slug=user.profile.slug  %}">NEW STREAM</a>
-                </div>
-            {% else %}
-            {% endif %}
             <div class="main_events">
                 <span>MAIN</span>
             </div>
