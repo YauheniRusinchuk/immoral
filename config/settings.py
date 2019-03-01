@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     #'channels',
     'src.apps.home',
     'src.models.profile',
+    'src.models.posts',
 ]
 
 MIDDLEWARE = [

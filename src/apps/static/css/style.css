@@ -492,3 +492,87 @@
     width: 100%;
     border: 1px solid black;
 }
+
+
+.masonry { /* Masonry container */
+    width: 90%;
+    margin: 0 auto;
+    column-count: 3;
+    column-gap: 1em;
+}
+
+.item { /* Masonry bricks or child elements */
+    background-color: white;
+    display: inline-block;
+    width: 100%;
+    font-size: 14px;
+    font-weight: normal;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 3px;
+    border: 1px solid #e6e6e6;
+    box-shadow: 0 0 1px grey;
+}
+
+.item p {
+    font-weight: normal;
+    color: #6b6b6b;
+    font-size: 14px;
+}
+
+
+.item .post_info_user {
+    display: flex;
+    align-items: center;
+}
+
+.item .post_info_user img {
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.item .post_info_user a {
+    font-size: 12px;
+    font-weight: bold;
+    color: #292828;
+    text-decoration: none;
+    margin-right: 10px;
+}
+
+.item .post_info_user span {
+    font-size: 8px;
+    color: grey;
+}
+
+
+
+
+
+
+@media only screen and (min-width: 1024px) {
+  .masonry {
+    column-count: 3;
+  }
+}
+
+/* Masonry on medium-sized screens */
+@media only screen and (max-width: 1023px) and (min-width: 768px) {
+  .masonry {
+    column-count: 3;
+  }
+}
+
+/* Masonry on small screens */
+@media only screen and (max-width: 767px) and (min-width: 540px) {
+  .masonry {
+    column-count: 2;
+  }
+}
+
+
+@media only screen and (max-width: 540px) and (min-width: 320px) {
+  .masonry {
+    column-count: 1;
+  }
+}

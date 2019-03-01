@@ -11,7 +11,24 @@
     <body>
         {% include 'header.html' %}
         {% block content %}
-
+            <div class="main_container">
+                <div class="masonry">
+                    {% for post in posts %}
+                        <div class="item">
+                            <div class="post_info_user">
+                                {% if post.profile.img %}
+                                    <img src="{{post.profile.img.url}}" width="30px" height="30px" alt="">
+                                {% else %}
+                                    <img src="https://www.basko.it/photo/noicon.png" width="30px" height="30px" alt="">
+                                {% endif %}
+                                <a href="{{post.profile.get_absolute_url}}">{{post.profile.user}}</a>
+                                <span>20.05.1993</span>
+                            </div>
+                            <p>{{post.text}}<p>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
         {% endblock %}
     <script src="{% static 'js/main.js' %}" type="text/javascript"></script>
     </body>
