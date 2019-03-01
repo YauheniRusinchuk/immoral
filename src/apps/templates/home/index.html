@@ -22,7 +22,7 @@
                                     <img src="https://www.basko.it/photo/noicon.png" width="30px" height="30px" alt="">
                                 {% endif %}
                                 <a href="{{post.profile.get_absolute_url}}">{{post.profile.user}}</a>
-                                <span>20.05.1993</span>
+                                <span>{{post.date_create|date:'m-d-y'}}</span>
                             </div>
                             <p>{{post.text}}<p>
                         </div>
