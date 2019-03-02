@@ -1,6 +1,8 @@
 from django.db import models
+from django.db.models.signals import pre_delete
 from src.models.profile.models import Profile
 from datetime import datetime
+import os
 
 class Post(models.Model):
     profile = models.ForeignKey(Profile, on_delete=models.CASCADE)
@@ -17,3 +19,19 @@ class Post(models.Model):
 class Img(models.Model):
     post = models.ForeignKey(Post, on_delete=models.CASCADE)
     img = models.ImageField(upload_to='img/')
+
+
+
+def post_delete_img(sender, instance, *args, **kwargs):
+    img = Img.objects.filter(post=instance)
+    print(img)
+    if img is None:
+        return False
+    if img:
+        for i in img:
+            if os.path.isfile(i.img.path):
+                os.remove(i.img.path)
+
+
+
+pre_delete.connect(post_delete_img, sender=Post)
