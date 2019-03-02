@@ -590,6 +590,7 @@
     text-align: center;
     padding: 25px;
     border-radius: 10px;
+    z-index: 10;
 }
 
 .plusnew_container form textarea {
@@ -619,7 +620,7 @@
     background-color: white;
     transition-property: background-color, color;
     transition-duration: 0.3s;
-}.
+}
 
 
 .plusnew_container form button:hover {
@@ -659,9 +660,10 @@
   }
 
 .img_post .rslides img {
-  display: block;
-  height: 300px;
-  float: left;
-  width: 100%;
-  border: 0;
-  }
+    display: block;
+    height: 300px;
+    float: left;
+    width: 100%;
+    border: 0;
+    border-radius: 10px;
+ }
