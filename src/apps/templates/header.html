@@ -1,16 +1,9 @@
+{% load static %}
 <div class="header">
     <div class="header_menu_and_search">
-        <ul>
-            <li>
-                <a href="{% url 'home:home_page' %}">HOME</a>
-            </li>
-            <li>
-                <a href="{% url 'home:events:events_page' %}">EVENTS</a>
-            </li>
-            <li>
-                <a href="">TOP</a>
-            </li>
-        </ul>
+                <a href="{% url 'home:home_page' %}">
+                    <img src="{% static 'img/hold.png' %}" alt="">
+                </a>
     </div>
     <div class="header_search">
         <input type="text" name="" placeholder="Search ..." value="">
