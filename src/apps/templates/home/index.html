@@ -27,12 +27,15 @@
                                 <span>{{post.date_create|date:'m-d-y'}}</span>
                             </div>
                             <p>{{post.text}}<p>
+                            {% if post.img_set.all %}
                             <div class="img_post">
                                 <ul class="rslides">
-                                  <li><img src="https://pp.userapi.com/c845521/v845521265/1958c1/Pwk8qgTbAog.jpg" alt=""></li>
-                                  <li><img src="https://pp.userapi.com/c850420/v850420808/9c007/MtXf892xOfU.jpg" alt=""></li>
+                                    {% for i in post.img_set.all %}
+                                    <li><img src="{{i.img.url}}" alt=""></li>
+                                    {% endfor %}
                                 </ul>
                             </div>
+                            {% endif %}
                         </div>
                     {% endfor %}
                 </div>

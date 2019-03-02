@@ -12,3 +12,8 @@ class Post(models.Model):
 
     def __str__(self):
         return f"this is post profile {self.profile.user}"
+
+
+class Img(models.Model):
+    post = models.ForeignKey(Post, on_delete=models.CASCADE)
+    img = models.ImageField(upload_to='img/')
