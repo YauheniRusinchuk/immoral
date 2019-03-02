@@ -1,5 +1,10 @@
 $(function(){
 
+
+    $(".rslides").responsiveSlides();
+
+
+
     $('.btn_add_new').click((e)=>{
         e.preventDefault();
         $('.plusnew_container').slideToggle('fast');

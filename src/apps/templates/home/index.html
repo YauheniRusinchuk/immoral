@@ -6,6 +6,7 @@
         <link href="https://fonts.googleapis.com/css?family=Mina:400,700" rel="stylesheet">
         <link rel="stylesheet" href="{% static 'css/style.css' %}">
         <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+        <script src="{% static 'js/responsiveslides.js' %}"></script>
         <title> HOME PAGE </title>
     </head>
     <body>
@@ -26,6 +27,13 @@
                                 <span>{{post.date_create|date:'m-d-y'}}</span>
                             </div>
                             <p>{{post.text}}<p>
+                            <div class="img_post">
+                                <ul class="rslides">
+                                  <li><img src="https://pp.userapi.com/c845521/v845521265/1958c1/Pwk8qgTbAog.jpg" alt=""></li>
+                                  <li><img src="https://pp.userapi.com/c850420/v850420808/9c007/MtXf892xOfU.jpg" alt=""></li>
+                                  <li><img src="https://pp.userapi.com/c845323/v845323676/1b33f2/a5jd29uGySM.jpg" alt=""></li>
+                                </ul>
+                            </div>
                         </div>
                     {% endfor %}
                 </div>
