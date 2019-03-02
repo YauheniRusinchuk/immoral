@@ -1,6 +1,6 @@
 <div class="plusnew_container">
 
-    <form action="plusnew/" method="post" enctype="multipart/form-data">{% csrf_token %}
+    <form action="{% url 'home:plusnew' %}" method="post" enctype="multipart/form-data">{% csrf_token %}
         <textarea required name='text' placeholder="You story ..."></textarea>
         <input type="file" multiple name="img" value="">
         <button type="submit" name="button">NEW</button>

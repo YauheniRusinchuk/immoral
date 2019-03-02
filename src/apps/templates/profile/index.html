@@ -38,6 +38,37 @@
         </div>
     </div>
 
+
+    <div class="profile_posts">
+        {% if profile.post_set.all %}
+        <div class="masonry">
+            {% for post in profile.post_set.all %}
+                <div class="item">
+                    <div class="post_info_user">
+                        {% if post.profile.img %}
+                            <img src="{{post.profile.img.url}}" width="30px" height="30px" alt="">
+                        {% else %}
+                            <img src="https://www.basko.it/photo/noicon.png" width="30px" height="30px" alt="">
+                        {% endif %}
+                        <a href="{{post.profile.get_absolute_url}}">{{post.profile.user}}</a>
+                        <span>{{post.date_create|date:'m-d-y'}}</span>
+                    </div>
+                    <p>{{post.text}}<p>
+                    {% if post.img_set.all %}
+                    <div class="img_post">
+                        <ul class="rslides">
+                            {% for i in post.img_set.all %}
+                            <li><img src="{{i.img.url}}" alt=""></li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    {% endif %}
+                </div>
+            {% endfor %}
+        </div>
+        {% endif %}
+    </div>
+
 </div>
 
 {% endblock %}

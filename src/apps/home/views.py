@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from django.http import HttpResponseRedirect
 from django.views import View
 from src.models.profile.models import Profile
 from src.models.posts.models import Post, Img
@@ -21,4 +22,4 @@ class PlusNew(View):
         for f in request.FILES.getlist('img'):
             media = Img(post=post, img=f)
             media.save()
-        return redirect('home:home_page')
+        return HttpResponseRedirect('/')
