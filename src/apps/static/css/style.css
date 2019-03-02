@@ -669,5 +669,35 @@
  }
 
 .profile_posts {
-    
+
+}
+
+
+
+.div_file_new {
+    /* margin-bottom: 20px; */
+}
+
+.div_file_new  .inputfile {
+	display: none;
+}
+
+
+
+.div_file_new .label_file {
+    /* border: 2px solid #292828;
+    padding: 2px 20px;
+    font-size: 8px;
+    font-weight: bold;
+    border-radius: 20px;
+    color: #292828;
+    cursor: pointer;
+    transition-property: background-color, color;
+    transition-duration: 0.3s; */
+    cursor: pointer;
+}
+
+.div_file_new .label_file:hover {
+    /* background-color: #292828;
+    color: white; */
 }

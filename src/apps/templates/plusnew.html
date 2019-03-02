@@ -1,8 +1,14 @@
+{% load static %}
 <div class="plusnew_container">
 
     <form action="{% url 'home:plusnew' %}" method="post" enctype="multipart/form-data">{% csrf_token %}
         <textarea required name='text' placeholder="You story ..."></textarea>
-        <input type="file" multiple name="img" value="">
+        <div class="div_file_new">
+            <input type="file" name="img" id="file" class="inputfile" /><br/>
+            <label class="label_file" for="file">
+                <img src="{% static 'img/photo-camera.png' %}" alt="">
+            </label><br/>
+        </div>
         <button type="submit" name="button">NEW</button>
     </form>
 
