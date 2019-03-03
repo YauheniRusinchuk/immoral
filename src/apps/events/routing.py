@@ -1,19 +1,9 @@
 from channels.routing import ProtocolTypeRouter, URLRouter
 from django.urls import path
-from django.conf.urls import url
-from channels.auth import AuthMiddlewareStack
-from channels.security.websocket import AllowedHostsOriginValidator, OriginValidator
-from .comsumers import NotificationPost
-
+from src.apps.events.consumers import NoseyConsumer
 
 application = ProtocolTypeRouter({
-    'websocket': AllowedHostsOriginValidator(
-        AuthMiddlewareStack(
-            URLRouter(
-                [
-                    path('', NotificationPost),
-                ]
-            )
-        )
-    )
+    "websocket": URLRouter([
+        path("", NoseyConsumer),
+    ])
 })

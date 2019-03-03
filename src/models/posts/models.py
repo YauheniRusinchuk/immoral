@@ -3,6 +3,12 @@ from django.db.models.signals import pre_delete, post_save
 from src.models.profile.models import Profile
 from datetime import datetime
 import os
+from asgiref.sync import async_to_sync
+from channels.layers import get_channel_layer
+
+
+
+
 
 class Post(models.Model):
     profile = models.ForeignKey(Profile, on_delete=models.CASCADE)
@@ -22,6 +28,17 @@ class Img(models.Model):
 
 
 
+def post_save_update(sender, instance, *args, **kwargs):
+    if instance.save:
+        print("HELLO! SIGNAL")
+        channel_layer = get_channel_layer()
+        async_to_sync(channel_layer.group_send)(
+            "gossip", {"type": "user.gossip",
+                        "event": "New User",
+                        })
+
+
+
 def post_delete_img(sender, instance, *args, **kwargs):
     img = Img.objects.filter(post=instance)
     print(img)
@@ -33,12 +50,5 @@ def post_delete_img(sender, instance, *args, **kwargs):
                 os.remove(i.img.path)
 
 
-
-def post_save_POST(sender, instance, *args, **kwargs):
-    if instance.save:
-        print('SAVE ....')
-        return True
-
-
-post_save.connect(post_save_POST, sender=Post)
+post_save.connect(post_save_update, sender=Post)
 pre_delete.connect(post_delete_img, sender=Post)
