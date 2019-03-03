@@ -1,5 +1,5 @@
 from django.db import models
-from django.db.models.signals import pre_delete
+from django.db.models.signals import pre_delete, post_save
 from src.models.profile.models import Profile
 from datetime import datetime
 import os
@@ -34,4 +34,11 @@ def post_delete_img(sender, instance, *args, **kwargs):
 
 
 
+def post_save_POST(sender, instance, *args, **kwargs):
+    if instance.save:
+        print('SAVE ....')
+        return True
+
+
+post_save.connect(post_save_POST, sender=Post)
 pre_delete.connect(post_delete_img, sender=Post)

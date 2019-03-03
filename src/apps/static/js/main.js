@@ -41,4 +41,33 @@ $(function(){
             }
         })
     })
+
+    let loc = window.location;
+    let wsStart = 'ws://';
+    if(loc.protocol == 'https:') {
+        wsStart = 'wss://';
+    }
+
+    let endPoint = wsStart + loc.host
+
+    let socket = new WebSocket(endPoint)
+
+    socket.onmessage = function(e) {
+        console.log('messages', e)
+        $('.update_btn_new').slideDown('slow');
+    }
+
+
+    socket.onopen = function(e) {
+        console.log('open', e)
+    }
+
+
+
+
+
+
+
+
+
 })

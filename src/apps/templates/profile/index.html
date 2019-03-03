@@ -50,7 +50,11 @@
                         {% else %}
                             <img src="https://www.basko.it/photo/noicon.png" width="30px" height="30px" alt="">
                         {% endif %}
-                        <a href="{{post.profile.get_absolute_url}}">{{post.profile.user}}</a>
+                        <a href="{{post.profile.get_absolute_url}}">{{post.profile.user}}
+                            {% if post.profile.is_offical %}
+                                <img src="{% static 'img/superuser.png' %}" alt="">
+                            {% endif %}
+                        </a>
                         <span>{{post.date_create|date:'m-d-y'}}</span>
                     </div>
                     <p>{{post.text}}<p>

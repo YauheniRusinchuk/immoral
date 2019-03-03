@@ -37,7 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    #'channels',
+    'channels',
     'src.apps.home',
     'src.models.profile',
     'src.models.posts',
@@ -55,7 +55,7 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'config.urls'
 
-#ASGI_APPLICATION = "src.apps.events.routing.application"
+ASGI_APPLICATION = "src.apps.events.routing.application"
 
 
 TEMPLATES = [
