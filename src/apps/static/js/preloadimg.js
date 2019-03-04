@@ -40,7 +40,4 @@ $(function(){
         imagesPreview(this, 'div.result_upload_img');
     });
 
-
-
-
 })

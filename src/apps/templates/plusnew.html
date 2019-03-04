@@ -2,7 +2,7 @@
 <div class="plusnew_container">
 
     <form action="{% url 'home:plusnew' %}" method="post" enctype="multipart/form-data">{% csrf_token %}
-        <textarea required name='text' placeholder="You story ..."></textarea>
+        <textarea class="text_area" maxlength="500" required name='text' placeholder="You story ...  max 500"></textarea>
             <div class="result_upload_img"></div>
             <input id="file" type="file" name="img"  multiple class="inputfile" /><br/>
             <label class="label_file" for="file">

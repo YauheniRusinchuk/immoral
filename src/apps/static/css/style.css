@@ -6,6 +6,11 @@
     font-family: 'Mina', sans-serif;
 }
 
+body {
+    background-color: #fafafa;
+}
+
+
 .header {
     position: fixed;
     left: 0;
@@ -505,8 +510,8 @@
     margin-bottom: 10px;
     padding: 10px;
     border-radius: 10px;
-    border: 1px solid #e6e6e6;
-    box-shadow: 0 0 30px #e6e6e6;
+    /* border: 1px solid #e6e6e6; */
+    box-shadow: 0 0 10px #e6e6e6;
 }
 
 .item p {
