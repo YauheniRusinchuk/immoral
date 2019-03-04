@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect, Http404, reverse
 from django.views import View
+from django.contrib.auth.mixins import LoginRequiredMixin
 from src.models.profile.models import Profile
 from django.contrib.auth.models import User
 
@@ -14,7 +15,7 @@ class ProfileDetail(View):
         return render(request, 'profile/index.html', {'profile': profile})
 
 
-class SettingsProfile(View):
+class SettingsProfile(LoginRequiredMixin,View):
     ''' Settings profile  '''
 
     def get(self, request, *args, **kwargs):
@@ -32,7 +33,7 @@ class SettingsProfile(View):
         try:
             user.save()
             if request.FILES:
-                profile.img = request.FILES['file']
+                profile.img = request.FILES['img']
             else:
                 profile.img = avatar
         except Exception:
