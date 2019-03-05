@@ -1,0 +1,44 @@
+{% extends 'home/index.html' %}
+{% load static %}
+
+{% block content %}
+
+    <div class="main_container">
+        {% if posts %}
+        <div class="masonry">
+            {% for post in posts %}
+                <div class="item">
+                    <div class="post_info_user">
+                        {% if post.profile.img %}
+                            <img src="{{post.profile.img.url}}" width="30px" height="30px" alt="">
+                        {% else %}
+                            <img src="https://www.basko.it/photo/noicon.png" width="30px" height="30px" alt="">
+                        {% endif %}
+                        <a href="{{post.profile.get_absolute_url}}">{{post.profile.user}}
+                            {% if post.profile.is_offical %}
+                                <img src="{% static 'img/superuser.png' %}" alt="">
+                            {% endif %}
+                        </a>
+                        <span>{{post.date_create|date:'m-d-y'}}</span>
+                    </div>
+                    <p>{{post.text}}<p>
+                    {% if post.img_set.all %}
+                    <div class="img_post">
+                        <ul class="rslides">
+                            {% for i in post.img_set.all %}
+                            <li><img src="{{i.img.url}}" alt=""></li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    {% endif %}
+                </div>
+            {% endfor %}
+        </div>
+        {% else %}
+            <div class="not_found_search">
+                <h3>NOT FOUND</h3>
+            </div>
+        {% endif %}
+    </div>
+
+{% endblock %}

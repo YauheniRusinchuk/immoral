@@ -6,7 +6,9 @@
                 </a>
     </div>
     <div class="header_search">
-        <input type="text" name="" placeholder="Search ..." value="">
+        <form action="{% url 'home:search_page' %}">
+            <input type="text" name="q" placeholder="Search ..." value="">
+        </form>
     </div>
 
     <div class="header_info_user">

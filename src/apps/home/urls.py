@@ -1,5 +1,5 @@
 from django.urls import path, include
-from .views import Home, PlusNew
+from .views import Home, PlusNew, Search
 from src.apps.login.views import Login
 from src.apps.profile.views import ProfileDetail, SettingsProfile
 from src.apps.registration.views import Registration
@@ -12,6 +12,7 @@ urlpatterns = [
     path('profile/<slug:slug>/', ProfileDetail.as_view(), name='profile_page'),
     path('profile/<slug:slug>/settings/', SettingsProfile.as_view(), name='settings_page'),
     path('login/', Login.as_view(), name='login_page'),
+    path('search/', Search.as_view(), name='search_page'),
     path('registration/', Registration.as_view(), name='registration_page'),
     path('accounts/', include('django.contrib.auth.urls')),
 ]

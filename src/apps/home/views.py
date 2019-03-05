@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponseRedirect
 from django.views import View
+from django.db.models import Q
 from src.models.profile.models import Profile
 from src.models.posts.models import Post, Img
 # Create your views here.
@@ -23,3 +24,20 @@ class PlusNew(View):
             media = Img(post=post, img=f)
             media.save()
         return HttpResponseRedirect('/')
+
+
+class Search(View):
+    ''' Search page  '''
+    def get(self, request, *args, **kwargs):
+        query:str = request.GET.get('q')
+        if query:
+            posts:list = Post.objects.filter(
+                Q(text__icontains=query) |
+                Q(text__startswith=query) |
+                Q(text__istartswith=query) |
+                Q(text__endswith=query) |
+                Q(text__iendswith=query)
+            )
+            print(posts)
+            return render(request, 'search/search.html', {'posts': posts})
+        return redirect('home:home_page')

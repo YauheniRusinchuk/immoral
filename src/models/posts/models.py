@@ -7,9 +7,6 @@ from asgiref.sync import async_to_sync
 from channels.layers import get_channel_layer
 
 
-
-
-
 class Post(models.Model):
     profile = models.ForeignKey(Profile, on_delete=models.CASCADE)
     text = models.TextField(max_length=500, blank=False)
@@ -30,7 +27,6 @@ class Img(models.Model):
 
 def post_save_update(sender, instance, *args, **kwargs):
     if instance.save:
-        print("HELLO! SIGNAL")
         channel_layer = get_channel_layer()
         async_to_sync(channel_layer.group_send)(
             "gossip", {"type": "user.gossip",
@@ -41,7 +37,6 @@ def post_save_update(sender, instance, *args, **kwargs):
 
 def post_delete_img(sender, instance, *args, **kwargs):
     img = Img.objects.filter(post=instance)
-    print(img)
     if img is None:
         return False
     if img:
