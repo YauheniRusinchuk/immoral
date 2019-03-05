@@ -29,7 +29,7 @@ def post_save_update(sender, instance, *args, **kwargs):
     if instance.save:
         channel_layer = get_channel_layer()
         async_to_sync(channel_layer.group_send)(
-            "gossip", {"type": "user.gossip",
+            "newpost", {"type": "user.gossip",
                         "event": "New User",
                         })
 
