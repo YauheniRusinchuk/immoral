@@ -57,7 +57,6 @@ $(function(){
         $('.update_btn_new').slideDown('slow');
     }
 
-
     socket.onopen = function(e) {
         console.log('open', e)
     }

@@ -26,6 +26,14 @@ class PlusNew(View):
         return HttpResponseRedirect('/')
 
 
+
+class DetailPost(View):
+    def get(self, request, *args, **kwargs):
+        post = Post.objects.get(pk=kwargs['pk'])
+        return render(request, 'posts/detail.html', {'post': post})
+
+
+
 class Search(View):
     ''' Search page  '''
     def get(self, request, *args, **kwargs):

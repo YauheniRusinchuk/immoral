@@ -1,0 +1,34 @@
+{% extends 'home/index.html' %}
+
+{% block content %}
+
+    <div class="main_container">
+
+        <div class="detail_post_container">
+            <div class="detail_post_user">
+                {% if post.profile.img %}
+                    <img src="{{post.profile.img.url}}" width="50px" height="50px" alt="">
+                {% else %}
+                    <img src="https://www.basko.it/photo/noicon.png" width="50px" height="50px" alt="">
+                {% endif %}
+                    <br/>
+                    <a href="{{post.profile.get_absolute_url}}">{{post.profile.user}}</a>
+            </div>
+
+            <div class="detail_post">
+                <p>{{post.text}}</p>
+                {% if post.img_set.all %}
+                    {% for i in post.img_set.all %}
+                        <img src="{{i.img.url}}" width="60%" alt=""><br/>
+                    {% endfor %}
+                {% endif %}
+
+            <span>{{post.date_create|date:'m-d-y'}}</span>
+            </div>
+
+
+        </div>
+
+    </div>
+
+{% endblock %}
