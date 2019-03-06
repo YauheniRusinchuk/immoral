@@ -775,3 +775,32 @@ body {
     font-size: 10px;
     color: #e6e6e6;
 }
+
+
+.form_comment {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form_comment form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.form_comment form img {
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.form_comment form input {
+    width: 400px;
+    border: 2px solid #292828;
+    padding: 10px;
+    border-radius: 10px;
+    outline: none;
+    font-size: 12px;
+}
