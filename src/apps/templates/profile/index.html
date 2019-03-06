@@ -57,7 +57,7 @@
                         </a>
                         <span>{{post.date_create|date:'m-d-y'}}</span>
                     </div>
-                    <p>{{post.text}}<p>
+                    <a href="{{post.get_absolute_url}}"><p>{{post.text}}<p></a>
                     {% if post.img_set.all %}
                     <div class="img_post">
                         <ul class="rslides">

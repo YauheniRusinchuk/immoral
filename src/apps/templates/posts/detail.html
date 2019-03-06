@@ -29,17 +29,30 @@
 
             {% if  user.is_authenticated %}
             <div class="form_comment">
-                <form class="">
+                <form id="form_comment">
                     {% if user.profile.img %}
                         <img class="avatar" src="{{user.profile.img.url}}" alt="" width="40px" height="40px" />
                     {% else %}
                         <img src="https://www.basko.it/photo/noicon.png" width="40px" height="40px" alt="">
                     {% endif %}
-                    <input type="text" name="" placeholder="Comment ..." value="">
+                    <input type="text" class="msg_form" name="" placeholder="Comment ..." value="">
                 </form>
             </div>
             {% endif %}
         </div>
     </div>
+
+
+    <script type="text/javascript">
+            $(function(){
+                $('#form_comment').on('submit', (e)=> {
+                    e.preventDefault();
+                    let text = $('.msg_form').val();
+                    console.log("TEXT", text)
+                    let pk = {{post.pk}}
+                    console.log(pk)
+                })
+            })
+    </script>
 
 {% endblock %}

@@ -798,9 +798,13 @@ body {
 
 .form_comment form input {
     width: 400px;
-    border: 2px solid #292828;
-    padding: 10px;
+    border: 2px solid grey;
+    padding: 7px;
     border-radius: 10px;
     outline: none;
     font-size: 12px;
+}
+
+.form_comment form input:focus {
+    border: 2px solid #292828;
 }
