@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'src.apps.events',
     'src.models.profile',
     'src.models.posts',
+    'src.models.comments',
 ]
 
 MIDDLEWARE = [

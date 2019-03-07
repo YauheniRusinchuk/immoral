@@ -27,20 +27,22 @@
             </div>
 
             <div class="comments_container">
-                <div class="chat">
-                    <div class="user-photo">
-                        <img src="https://pp.userapi.com/c845521/v845521265/1958c1/Pwk8qgTbAog.jpg" alt="">
+                {% if post.comment_set.all %}
+                    {% for i in post.comment_set.all %}
+                    <div class="chat">
+                        <div class="user-photo">
+                            {% if i.profile.img %}
+                                <img src="{{i.profile.img.url}}" alt="">
+                            {% else %}
+                                <img src="https://pp.userapi.com/c845521/v845521265/1958c1/Pwk8qgTbAog.jpg" alt="">
+                            {% endif %}
+                        </div>
+                        <p class="user-message">{{i.text}}</p>
                     </div>
-                    <p class="user-message">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                </div>
-
-                <div class="chat">
-                    <div class="user-photo">
-                        <img src="https://pp.userapi.com/c845521/v845521265/1958c1/Pwk8qgTbAog.jpg" alt="">
-                    </div>
-                    <p class="user-message">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                </div>
-
+                    {% endfor %}
+                {% else %}
+                    <h5>NOT COMMENTS ...</h5>
+                {% endif %}
 
             </div>
 
@@ -83,12 +85,11 @@
             $('#form_comment').on('submit', (e)=> {
                 e.preventDefault();
                 let text = $('.msg_form').val();
-                let pk = {{post.pk}}
-                // let data = {
-                //     text: text,
-                //     pk: pk,
-                // }
-                wsMsg.send(text)
+                let data = {
+                    'message': text
+                }
+                wsMsg.send(JSON.stringify(data))
+                $('#form_comment')[0].reset();
             })
     })
 </script>
