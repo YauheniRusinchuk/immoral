@@ -1,5 +1,5 @@
 {% extends 'home/index.html' %}
-
+{% load static %}
 {% block content %}
 
     <div class="main_container">
@@ -26,6 +26,24 @@
             <span>{{post.date_create|date:'m-d-y'}}</span>
             </div>
 
+            <div class="comments_container">
+                <div class="chat">
+                    <div class="user-photo">
+                        <img src="https://pp.userapi.com/c845521/v845521265/1958c1/Pwk8qgTbAog.jpg" alt="">
+                    </div>
+                    <p class="user-message">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                </div>
+
+                <div class="chat">
+                    <div class="user-photo">
+                        <img src="https://pp.userapi.com/c845521/v845521265/1958c1/Pwk8qgTbAog.jpg" alt="">
+                    </div>
+                    <p class="user-message">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                </div>
+
+
+            </div>
+
 
             {% if  user.is_authenticated %}
             <div class="form_comment">
@@ -41,18 +59,39 @@
             {% endif %}
         </div>
     </div>
+<script type="text/javascript">
+    $(function() {
+
+            let loc = window.location;
+            let wsStart = 'ws://';
+            if(loc.protocol == 'https:') {
+                wsStart = 'wss://';
+            }
+
+            let endPoint = wsStart + loc.host + loc.pathname
+            let wsMsg = new WebSocket(endPoint);
+
+            wsMsg.onopen = function(e) {
+                console.log("OpenMSG", e)
+            }
+
+            wsMsg.onmessage = function(e) {
+                console.log("Message", e)
+            }
 
 
-    <script type="text/javascript">
-            $(function(){
-                $('#form_comment').on('submit', (e)=> {
-                    e.preventDefault();
-                    let text = $('.msg_form').val();
-                    console.log("TEXT", text)
-                    let pk = {{post.pk}}
-                    console.log(pk)
-                })
+            $('#form_comment').on('submit', (e)=> {
+                e.preventDefault();
+                let text = $('.msg_form').val();
+                let pk = {{post.pk}}
+                // let data = {
+                //     text: text,
+                //     pk: pk,
+                // }
+                wsMsg.send(text)
             })
-    </script>
+    })
+</script>
 
+<script src="{% static 'js/comments.js' %}"></script>
 {% endblock %}
