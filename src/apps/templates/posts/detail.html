@@ -79,7 +79,13 @@
 
             wsMsg.onmessage = function(e) {
                 console.log("Message", e)
-            }
+                let current_data = JSON.parse(e.data)
+                console.log(current_data)
+
+                $('.comments_container')
+                    .append(`<div class="chat"><div class="user-photo">{% if user.profile.img %}<img src="{{user.profile.img.url}}" alt="">{% else %}<img src="https://pp.userapi.com/c845521/v845521265/1958c1/Pwk8qgTbAog.jpg" alt="">{% endif %}</div><p class="user-message">${current_data.message}</p></div>`);
+             }
+
 
 
             $('#form_comment').on('submit', (e)=> {

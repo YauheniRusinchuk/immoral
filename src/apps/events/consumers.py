@@ -1,6 +1,7 @@
 from channels.generic.websocket import AsyncJsonWebsocketConsumer,WebsocketConsumer
 from channels.consumer import AsyncConsumer
 import json
+from channels.auth import get_user
 
 class PostConsumer(AsyncJsonWebsocketConsumer):
 
@@ -32,10 +33,16 @@ class CommentCunsumer(AsyncConsumer):
         text_comment = event.get('text', None)
         if text_comment is not None:
             load_data = json.loads(text_comment)
-            data = load_data.get('message')
+            message = load_data.get('message')
+            user = self.scope['user']
+            response = {
+                'message': message,
+                'username': user.username,
+            }
             await self.send({
                 "type": "websocket.send",
-                "text": data
+                "text": json.dumps(response),
+
             })
 
     async def websocket_disconnect(self, event):
