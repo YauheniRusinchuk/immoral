@@ -837,9 +837,9 @@ body {
     width: 80%;
     padding: 10px;
     margin: 0px 5px 0;
-    background-color: #499cf5;
+    /* background-color: #499cf5; */
     border-radius: 10px;
     font-size: 12px;
-    color: white;
+    color: grey;
     font-weight: bold;
 }
