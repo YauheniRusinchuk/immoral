@@ -1,8 +1,10 @@
 from channels.generic.websocket import AsyncJsonWebsocketConsumer,WebsocketConsumer
 from channels.consumer import AsyncConsumer
+from channels.db import database_sync_to_async
 import json
-from channels.auth import get_user
-import pickle
+from src.models.posts.models import Post
+from src.models.comments.models import Comment
+
 
 class PostConsumer(AsyncJsonWebsocketConsumer):
 
@@ -25,6 +27,8 @@ class CommentCunsumer(AsyncConsumer):
 
     async def websocket_connect(self, event):
         pk_post = self.scope['url_route']['kwargs']['pk']
+        post = Post.objects.get(pk=pk_post)
+        self.post = post
         self.pk_post = "id" + str(pk_post)
         await self.channel_layer.group_add(
             self.pk_post,
@@ -51,7 +55,7 @@ class CommentCunsumer(AsyncConsumer):
                 'url_img': url_img,
                 'url_profile': user.profile.get_absolute_url(),
             }
-
+            await self.create_comment(user, message)
             await self.channel_layer.group_send(
                 self.pk_post,
                 {
@@ -61,11 +65,16 @@ class CommentCunsumer(AsyncConsumer):
             )
 
     async def msg_post(self, event):
-        print('message', event)
+        #print('message', event)
         await self.send({
             "type": "websocket.send",
             "text": event["text"]
         })
+
+    @database_sync_to_async
+    def create_comment(self, user, msg):
+        Comment.objects.create(profile=user.profile, text=msg, post=self.post)
+
 
     async def websocket_disconnect(self, event):
         print("disconnect")
