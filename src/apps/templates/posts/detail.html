@@ -30,6 +30,7 @@
                 {% if post.comment_set.all %}
                     {% for i in post.comment_set.all %}
                     <div class="chat">
+                        <a href="{{i.profile.get_absolute_url}}">
                         <div class="user-photo">
                             {% if i.profile.img %}
                                 <img src="{{i.profile.img.url}}" alt="">
@@ -37,6 +38,7 @@
                                 <img src="https://pp.userapi.com/c845521/v845521265/1958c1/Pwk8qgTbAog.jpg" alt="">
                             {% endif %}
                         </div>
+                        </a>
                         <p class="user-message">{{i.text}}</p>
                     </div>
                     {% endfor %}
@@ -80,10 +82,10 @@
             wsMsg.onmessage = function(e) {
                 console.log("Message", e)
                 let current_data = JSON.parse(e.data)
-                console.log(current_data)
-
+                console.log(current_data['username'])
+                console.log(current_data['url_img'])
                 $('.comments_container')
-                    .append(`<div class="chat"><div class="user-photo">{% if user.profile.img %}<img src="{{user.profile.img.url}}" alt="">{% else %}<img src="https://pp.userapi.com/c845521/v845521265/1958c1/Pwk8qgTbAog.jpg" alt="">{% endif %}</div><p class="user-message">${current_data.message}</p></div>`);
+                    .append(`<div class="chat"><a href=""><div class="user-photo">{% if user.profile.img %}<img src="{{user.profile.img.url}}" alt="">{% else %}<img src="https://pp.userapi.com/c845521/v845521265/1958c1/Pwk8qgTbAog.jpg" alt="">{% endif %}</div></a><p class="user-message">${current_data['message']}</p></div>`);
              }
 
 

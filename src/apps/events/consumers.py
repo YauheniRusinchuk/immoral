@@ -2,6 +2,7 @@ from channels.generic.websocket import AsyncJsonWebsocketConsumer,WebsocketConsu
 from channels.consumer import AsyncConsumer
 import json
 from channels.auth import get_user
+import pickle
 
 class PostConsumer(AsyncJsonWebsocketConsumer):
 
@@ -23,6 +24,12 @@ class PostConsumer(AsyncJsonWebsocketConsumer):
 class CommentCunsumer(AsyncConsumer):
 
     async def websocket_connect(self, event):
+        pk_post = self.scope['url_route']['kwargs']['pk']
+        self.pk_post = "id" + str(pk_post)
+        await self.channel_layer.group_add(
+            self.pk_post,
+            self.channel_name,
+        )
         await self.send({
             "type": "websocket.accept",
         })
@@ -35,15 +42,29 @@ class CommentCunsumer(AsyncConsumer):
             load_data = json.loads(text_comment)
             message = load_data.get('message')
             user = self.scope['user']
+            url_img = ""
+            if user.profile.img:
+                url_img = user.profile.img.url
             response = {
                 'message': message,
                 'username': user.username,
+                'url_img': url_img,
             }
-            await self.send({
-                "type": "websocket.send",
-                "text": json.dumps(response),
 
-            })
+            await self.channel_layer.group_send(
+                self.pk_post,
+                {
+                    "type": "msg_post",
+                    "text": json.dumps(response),
+                }
+            )
+
+    async def msg_post(self, event):
+        print('message', event)
+        await self.send({
+            "type": "websocket.send",
+            "text": event["text"]
+        })
 
     async def websocket_disconnect(self, event):
         print("disconnect")
