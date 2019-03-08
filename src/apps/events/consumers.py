@@ -49,6 +49,7 @@ class CommentCunsumer(AsyncConsumer):
                 'message': message,
                 'username': user.username,
                 'url_img': url_img,
+                'url_profile': user.profile.get_absolute_url(),
             }
 
             await self.channel_layer.group_send(
