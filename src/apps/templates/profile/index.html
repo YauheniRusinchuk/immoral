@@ -72,7 +72,7 @@
                     <div class="info_item_container">
                         <div class="item_comments">
                             <img src="{% static 'img/comment.png' %}" alt="">
-                            <span>12</span>
+                            <span>{{post.comment_set.all.count}}</span>
                         </div>
                         <div class="item_likes">
                             <img src="{% static 'img/likered.png' %}" alt="">
