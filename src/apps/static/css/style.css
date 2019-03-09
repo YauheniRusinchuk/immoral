@@ -7,7 +7,7 @@
 }
 
 body {
-    background-color: #fafafa;
+    background-color: #e8e8e8;
 }
 
 
@@ -27,7 +27,7 @@ body {
 
 .header .header_search input  {
     width: 250px;
-    border: 2px solid #292828;
+    border: 2px solid #e8e8e8;
     padding: 2px 10px;
     border-radius: 20px;
     outline: none;
@@ -180,6 +180,7 @@ body {
     margin: 100px auto;
     box-shadow: 0 0 50px #e6e6e6;
     border-radius: 10px;
+    background-color: white;
 
 }
 
@@ -299,6 +300,7 @@ body {
     height: 150px;
     border-radius: 50%;
     max-width: 100%;
+    border: 3px solid white;
 }
 
 
@@ -339,20 +341,13 @@ body {
     font-size: 10px;
     font-weight: bold;
     padding: 2px 30px;
-    color: #292828;
+    color: white;
     text-decoration: none;
     outline: none;
-    background-color: white;
-    transition-property: background-color, color;
-    transition-duration: 0.3s;
-}
-
-
-.profile_username .btn_settings:hover {
     background-color: #292828;
-    color: white;
-    cursor: pointer;
 }
+
+
 
 .profile_descripton {
 
@@ -582,7 +577,7 @@ body {
 
 
 .plusnew_container {
-    position: absolute;
+    position: fixed;
     top: 100px;
     left: 30%;
     background-color: white;
