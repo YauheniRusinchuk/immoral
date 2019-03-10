@@ -5,14 +5,18 @@
         <span>{{post.comment_set.all.count}}</span>
     </div>
     <div class="item_likes">
-        <img src="{% static 'img/like.png' %}" alt="">
+        {% if user.profile in post.likes.all %}
+            <img src="{% static 'img/likered.png' %}" alt="">
+        {% else %}
+            <img src="{% static 'img/like.png' %}" alt="">
+        {% endif %}
         <span>{{post.likes.count}}</span>
     </div>
 
 
 <script type="text/javascript">
     $(function() {
-        
+
     })
 </script>
 
