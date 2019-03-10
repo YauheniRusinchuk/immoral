@@ -12,6 +12,7 @@ class Post(models.Model):
     profile = models.ForeignKey(Profile, on_delete=models.CASCADE)
     text = models.TextField(max_length=500, blank=False)
     date_create = models.DateTimeField(auto_now_add=True)
+    likes = models.ManyToManyField(Profile, blank=True, related_name='likes')
 
     def get_absolute_url(self):
         return reverse('home:detail_post', kwargs={'slug' : self.profile.slug, 'pk': self.pk})
