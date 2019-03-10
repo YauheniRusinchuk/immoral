@@ -17,6 +17,8 @@ class Post(models.Model):
     def get_absolute_url(self):
         return reverse('home:detail_post', kwargs={'slug' : self.profile.slug, 'pk': self.pk})
 
+    def get_like_url(self):
+        return reverse('home:like_post', kwargs={'slug': self.profile.slug, 'pk': self.pk})
 
     class Meta:
         ordering = ['-date_create']

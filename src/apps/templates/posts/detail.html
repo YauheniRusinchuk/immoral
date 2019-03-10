@@ -22,7 +22,7 @@
                         <img src="{{i.img.url}}" width="60%" alt=""><br/>
                     {% endfor %}
                 {% endif %}
-
+            <p>{{post.likes.count}} <a href="{{post.get_like_url}}">Like</a></p>
             <span>{{post.date_create|date:'m-d-y'}}</span>
             </div>
 

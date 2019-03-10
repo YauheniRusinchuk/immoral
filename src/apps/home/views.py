@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponseRedirect
 from django.views import View
+from django.views.generic import RedirectView
 from django.db.models import Q
 from src.models.profile.models import Profile
 from src.models.posts.models import Post, Img
@@ -31,6 +32,20 @@ class DetailPost(View):
     def get(self, request, *args, **kwargs):
         post = Post.objects.get(pk=kwargs['pk'])
         return render(request, 'posts/detail.html', {'post': post})
+
+
+
+class PostLikeToggle(RedirectView):
+    def get_redirect_url(self, *args, **kwargs):
+        pk = self.kwargs.get('pk')
+        post = Post.objects.get(pk=pk)
+        user = self.request.user
+        if user.is_authenticated:
+            if user.profile in post.likes.all():
+                post.likes.remove(user.profile)
+            else:    
+                post.likes.add(user.profile)
+        return post.get_absolute_url()
 
 
 
