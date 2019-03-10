@@ -1,0 +1,11 @@
+{% load static %}
+<div class="info_item_container">
+    <div class="item_comments">
+        <img src="{% static 'img/comment.png' %}" alt="">
+        <span>{{post.comment_set.all.count}}</span>
+    </div>
+    <div class="item_likes">
+        <img src="{% static 'img/like.png' %}" alt="">
+        <span>213</span>
+    </div>
+</div>
