@@ -863,8 +863,21 @@ body {
     font-weight: bold;
 }
 
-.item_comments , .item_likes {
+.item_comments {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.item_likes {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+
+
+.item_likes img {
+    cursor: pointer;
 }
