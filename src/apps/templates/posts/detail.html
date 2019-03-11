@@ -5,6 +5,17 @@
     <div class="main_container">
 
         <div class="detail_post_container">
+            <div class="like_container_detail">
+            <p>{{post.likes.count}}
+                    <a href="{{post.get_like_url}}">
+                        {% if user.profile in post.likes.all %}
+                            <img src="{% static 'img/likeBGRED.png' %}" alt="">
+                        {% else %}
+                            <img src="{% static 'img/likeBG.png' %}" alt="">
+                        {% endif %}
+                    </a>
+            </p>
+            </div>
             <div class="detail_post_user">
                 {% if post.profile.img %}
                     <img src="{{post.profile.img.url}}" width="50px" height="50px" alt="">
@@ -22,7 +33,6 @@
                         <img src="{{i.img.url}}" width="60%" alt=""><br/>
                     {% endfor %}
                 {% endif %}
-            <p>{{post.likes.count}} <a href="{{post.get_like_url}}">Like</a></p>
             <span>{{post.date_create|date:'m-d-y'}}</span>
             </div>
 
