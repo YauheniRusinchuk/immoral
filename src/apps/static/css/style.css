@@ -803,7 +803,7 @@ body {
     width: 400px;
     border: 2px solid grey;
     padding: 7px;
-    border-radius: 10px;
+    border-radius: 20px;
     outline: none;
     font-size: 12px;
 }
@@ -886,4 +886,9 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+
+.post_like_count {
+    font-size: 10px;
 }

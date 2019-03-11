@@ -6,7 +6,7 @@
 
         <div class="detail_post_container">
             <div class="like_container_detail">
-            <p>{{post.likes.count}}
+            <p class="post_like_count">{{post.likes.count}}
                     <a href="{{post.get_like_url}}">
                         {% if user.profile in post.likes.all %}
                             <img src="{% static 'img/likeBGRED.png' %}" alt="">
@@ -66,7 +66,7 @@
                     {% else %}
                         <img src="https://www.basko.it/photo/noicon.png" width="40px" height="40px" alt="">
                     {% endif %}
-                    <input type="text" class="msg_form" name="" placeholder="Comment ..." value="">
+                    <input type="text" maxlength="500" class="msg_form" name="" placeholder="Comment ... max 500" value="">
                 </form>
             </div>
             {% endif %}
