@@ -31,7 +31,7 @@ body {
 
 .header .header_search input  {
     width: 250px;
-    border: 2px solid #e8e8e8;
+    border: 1px solid #e8e8e8;
     padding: 2px 10px;
     border-radius: 20px;
     outline: none;
@@ -71,7 +71,7 @@ body {
 }
 
 .header_info_user .btn_add_new {
-    font-size: 8px;
+    font-size: 10px;
     font-weight: bold;
     color: #292828;
     border: 2px solid #292828;
@@ -95,7 +95,7 @@ body {
     text-decoration: none;
     color: #292828;
     text-transform: uppercase;
-    font-weight: bold;
+    font-weight: normal;
 }
 
 .main_container {
