@@ -4,7 +4,10 @@
 
     <div class="main_container">
 
+
+
         <div class="detail_post_container">
+            {% include 'back.html' %}
             <div class="like_container_detail">
             <p class="post_like_count">{{post.likes.count}}
                     <a href="{{post.get_like_url}}">

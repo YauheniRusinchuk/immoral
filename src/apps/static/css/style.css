@@ -892,3 +892,13 @@ body {
 .post_like_count {
     font-size: 10px;
 }
+
+
+.btn_back {
+    position: absolute;
+    top: 10px;
+    left: 5px;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: bold;
+}
