@@ -43,6 +43,15 @@
                             </div>
                             {% endif %}
                             {% include 'item_info.html' %}
+
+                            {% if post.comment_set.all %}
+                            <div class="last_comment_container">
+                                <a href="{{post.comment_set.all.last.profile.get_absolute_url}}"><img src="{{post.comment_set.all.last.profile.img.url}}" width="20px" height="20px" alt=""></a>
+                                <p>{{post.comment_set.all.last.text}}</p>
+                            </div>
+
+                            {% endif %}
+
                         </div>
                     {% endfor %}
                 </div>
