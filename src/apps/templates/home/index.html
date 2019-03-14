@@ -46,7 +46,13 @@
 
                             {% if post.comment_set.all %}
                             <div class="last_comment_container">
-                                <a href="{{post.comment_set.all.last.profile.get_absolute_url}}"><img src="{{post.comment_set.all.last.profile.img.url}}" width="20px" height="20px" alt=""></a>
+                                <a href="{{post.comment_set.all.last.profile.get_absolute_url}}">
+                                    {% if post.comment_set.all.last.profile.img.url %}
+                                        <img src="{{post.comment_set.all.last.profile.img.url}}" width="20px" height="20px" alt="">
+                                    {% else %}
+                                        <img src="https://www.basko.it/photo/noicon.png" width="20px" height="20px" alt="">
+                                    {% endif %}
+                                </a>
                                 <p>{{post.comment_set.all.last.text}}</p>
                             </div>
 
