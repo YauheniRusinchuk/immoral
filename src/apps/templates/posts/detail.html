@@ -10,7 +10,8 @@
             {% include 'back.html' %}
             <div class="like_container_detail">
             <p class="post_like_count">{{post.likes.count}}
-                    <a href="{{post.get_like_url}}">
+                    <!-- <a class="a_like" href="{{post.get_like_url}}"> -->
+                    <a class="a_like" href="">
                         {% if user.profile in post.likes.all %}
                             <img src="{% static 'img/likeBGRED.png' %}" alt="">
                         {% else %}
@@ -77,6 +78,13 @@
     </div>
 <script type="text/javascript">
     $(function() {
+
+            $('.a_like').click((e)=> {
+                e.preventDefault();
+                console.log("CLIKC ...");
+            })
+
+
 
             let loc = window.location;
             let wsStart = 'ws://';

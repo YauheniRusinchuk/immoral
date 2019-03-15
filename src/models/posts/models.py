@@ -20,6 +20,10 @@ class Post(models.Model):
     def get_like_url(self):
         return reverse('home:like_post', kwargs={'slug': self.profile.slug, 'pk': self.pk})
 
+
+    def get_like_url_json(self):
+        return reverse('home:like_post_json', kwargs={'slug': self.profile.slug, 'pk': self.pk})
+
     class Meta:
         ordering = ['-date_create']
 

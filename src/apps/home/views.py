@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, HttpResponse
 from django.http import HttpResponseRedirect
 from django.views import View
 from django.views.generic import RedirectView
@@ -43,9 +43,14 @@ class PostLikeToggle(RedirectView):
         if user.is_authenticated:
             if user.profile in post.likes.all():
                 post.likes.remove(user.profile)
-            else:    
+            else:
                 post.likes.add(user.profile)
         return post.get_absolute_url()
+
+
+class PostLikeJson(View):
+    def get(self, request, *args, **kwargs):
+        return HttpResponse({'status': 200})
 
 
 
