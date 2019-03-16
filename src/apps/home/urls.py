@@ -1,5 +1,14 @@
 from django.urls import path, include
-from .views import Home, PlusNew, Search, DetailPost, PostLikeToggle
+from .views import (
+    Home,
+    PlusNew,
+    Search,
+    DetailPost,
+    PostLikeToggle,
+    PostLikeJson
+)
+
+
 from src.apps.login.views import Login
 from src.apps.profile.views import ProfileDetail, SettingsProfile
 from src.apps.registration.views import Registration
@@ -8,9 +17,9 @@ app_name = 'home'
 
 urlpatterns = [
     path('', Home.as_view(), name='home_page'),
+    #path('author/<slug:slug>/id<int:pk>/likejson', PostLikeJson.as_view(), name='like_post_json'),
     path('author/<slug:slug>/id<int:pk>/', DetailPost.as_view(), name='detail_post'),
     path('author/<slug:slug>/id<int:pk>/like', PostLikeToggle.as_view(), name='like_post'),
-    path('author/<slug:slug>/id<int:pk>/likejson', PostLikeToggle.as_view(), name='like_post_json'),
     path('plusnew/', PlusNew.as_view(), name='plusnew'),
     path('profile/<slug:slug>/', ProfileDetail.as_view(), name='profile_page'),
     path('profile/<slug:slug>/settings/', SettingsProfile.as_view(), name='settings_page'),

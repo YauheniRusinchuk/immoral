@@ -11,7 +11,7 @@
             <div class="like_container_detail">
             <p class="post_like_count">{{post.likes.count}}
                     <!-- <a class="a_like" href="{{post.get_like_url}}"> -->
-                    <a class="a_like" href="">
+                    <a class="a_like" href="{{post.get_like_url}}">
                         {% if user.profile in post.likes.all %}
                             <img src="{% static 'img/likeBGRED.png' %}" alt="">
                         {% else %}
@@ -79,10 +79,6 @@
 <script type="text/javascript">
     $(function() {
 
-            $('.a_like').click((e)=> {
-                e.preventDefault();
-                console.log("CLIKC ...");
-            })
 
 
 

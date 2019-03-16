@@ -1,12 +1,12 @@
 from django.shortcuts import render, redirect, HttpResponse
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, JsonResponse
 from django.views import View
 from django.views.generic import RedirectView
 from django.db.models import Q
 from src.models.profile.models import Profile
 from src.models.posts.models import Post, Img
 # Create your views here.
-
+import json
 
 
 class Home(View):
@@ -48,9 +48,21 @@ class PostLikeToggle(RedirectView):
         return post.get_absolute_url()
 
 
-class PostLikeJson(View):
-    def get(self, request, *args, **kwargs):
-        return HttpResponse({'status': 200})
+# class PostLikeJson(View):
+#     def get(self, request, *args, **kwargs):
+#         print("PostLikeJson ....")
+#         flag:bool = False
+#         pk = self.kwargs.get('pk')
+#         post = Post.objects.get(pk=pk)
+#         user = self.request.user
+#         if user.is_authenticated:
+#             if user.profile in post.likes.all():
+#                 post.likes.remove(user.profile)
+#             else:
+#                 post.likes.add(user.profile)
+#                 flag:bool = True
+#         print('FLAG :', flag)
+#         return JsonResponse(json.dumps({'flag': flag}))
 
 
 
