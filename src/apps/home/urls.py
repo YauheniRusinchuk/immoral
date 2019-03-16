@@ -4,8 +4,7 @@ from .views import (
     PlusNew,
     Search,
     DetailPost,
-    PostLikeToggle,
-    PostLikeJson
+    PostLikeToggle
 )
 
 
