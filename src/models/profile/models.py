@@ -9,7 +9,7 @@ import os
 class Profile(models.Model):
 
     user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete = models.CASCADE, primary_key = True)
-    description = models.TextField(max_length=300, blank=True)
+    description = models.CharField(max_length=300, blank=True)
     slug = models.SlugField(unique=True)
     img = models.ImageField(upload_to='ava_profile/', blank=True, null=True)
     is_offical = models.BooleanField(default=False)
