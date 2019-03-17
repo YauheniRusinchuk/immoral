@@ -952,3 +952,11 @@ body {
     padding: 10px;
     border-radius: 10px;
 }
+
+.social_profile {
+    display: flex;
+}
+
+.social_profile img {
+    margin: 5px;
+}
