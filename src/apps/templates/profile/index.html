@@ -36,9 +36,15 @@
                 {% endif %}
             </div>
             <div class="social_profile">
-                <a href=""><img src="{% static 'img/facebook-logo.png' %}" alt=""></a>
-                <a href=""><img src="{% static 'img/twitter-logo.png' %}" alt=""></a>
-                <a href=""><img src="{% static 'img/instagram.png' %}" alt=""></a>
+                {% if profile.facebook %}
+                    <a href="{{profile.facebook}}" target="_blank"><img src="{% static 'img/facebook-logo.png' %}" alt=""></a>
+                {% endif %}
+                {% if profile.twitter %}
+                    <a href="{{profile.twitter}}" target="_blank"><img src="{% static 'img/twitter-logo.png' %}" alt=""></a>
+                {% endif %}
+                {% if profile.instagram %}
+                    <a href="{{profile.instagram}}" target="_blank"><img src="{% static 'img/instagram.png' %}" alt=""></a>
+                {% endif %}
             </div>
         </div>
     </div>

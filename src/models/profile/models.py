@@ -13,6 +13,9 @@ class Profile(models.Model):
     slug = models.SlugField(unique=True)
     img = models.ImageField(upload_to='ava_profile/', blank=True, null=True)
     is_offical = models.BooleanField(default=False)
+    facebook = models.URLField(blank=True)
+    twitter = models.URLField(blank=True)
+    instagram = models.URLField(blank=True)
 
 
     def get_absolute_url(self):

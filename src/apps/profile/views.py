@@ -39,5 +39,8 @@ class SettingsProfile(LoginRequiredMixin,View):
         except Exception:
             return redirect('home:settings_page', slug=profile.slug)
         profile.description = request.POST.get('description')
+        profile.facebook = request.POST.get('facebook')
+        profile.twitter = request.POST.get('twitter')
+        profile.instagram = request.POST.get('instagram')
         profile.save()
         return redirect('home:profile_page', slug=profile.slug)
