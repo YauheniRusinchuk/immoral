@@ -62,7 +62,7 @@ class PostLikeToggle(View):
                 post.likes.add(user.profile)
                 flag:bool = True
         print('FLAG :', flag)
-        return HttpResponse('seccess like ...')
+        return HttpResponse(json.dumps({'flag': flag}))
 
 
 

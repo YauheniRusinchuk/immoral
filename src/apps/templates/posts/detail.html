@@ -9,16 +9,14 @@
         <div class="detail_post_container">
             {% include 'back.html' %}
             <div class="like_container_detail">
-            <p class="post_like_count">{{post.likes.count}}
-                    <!-- <a class="a_like" href="{{post.get_like_url}}"> -->
-                    <a id='a_link' class="a_like" href="{{post.get_like_url}}">
-                        {% if user.profile in post.likes.all %}
-                            <img src="{% static 'img/likeBGRED.png' %}" alt="">
-                        {% else %}
-                            <img src="{% static 'img/likeBG.png' %}" alt="">
-                        {% endif %}
-                    </a>
-            </p>
+            <p class="post_like_count">{{post.likes.count}}</p>
+            <a id='a_link' class="a_like" href="{{post.get_like_url}}">
+                {% if user.profile in post.likes.all %}
+                    <img src="{% static 'img/likeBGRED.png' %}" alt="">
+                {% else %}
+                    <img src="{% static 'img/likeBG.png' %}" alt="">
+                {% endif %}
+            </a>
             </div>
             <div class="detail_post_user">
                 {% if post.profile.img %}
@@ -91,7 +89,15 @@
                     url: a_href,
                     type: "GET",
                     success: function(data) {
-                        console.log('success ....')
+                        let dataFlag = JSON.parse(data)
+                        let count_like = Number($('.post_like_count').text());
+                        if(dataFlag['flag']) {
+                            count_like++;
+                            $('.post_like_count').text(String(count_like));
+                        }else{
+                            count_like--;
+                            $('.post_like_count').text(String(count_like));
+                        }
                     }
                 })
 
