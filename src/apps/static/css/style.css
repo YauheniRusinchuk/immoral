@@ -54,6 +54,16 @@ body {
     align-items: center;
 }
 
+.header .header_menu_and_search a {
+    text-decoration: none;
+}
+
+.header .header_menu_and_search a span {
+    color: white;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: bold;
+}
 
 .header_info_user {
     display: flex;

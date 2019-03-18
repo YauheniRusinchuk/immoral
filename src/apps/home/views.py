@@ -35,23 +35,8 @@ class DetailPost(View):
 
 
 
-class PostLikeToggle(RedirectView):
-    def get_redirect_url(self, *args, **kwargs):
-        pk = self.kwargs.get('pk')
-        post = Post.objects.get(pk=pk)
-        user = self.request.user
-        if user.is_authenticated:
-            if user.profile in post.likes.all():
-                post.likes.remove(user.profile)
-            else:
-                post.likes.add(user.profile)
-        return post.get_absolute_url()
-
-
-# class PostLikeJson(View):
-#     def get(self, request, *args, **kwargs):
-#         print("PostLikeJson ....")
-#         flag:bool = False
+# class PostLikeToggle(RedirectView):
+#     def get_redirect_url(self, *args, **kwargs):
 #         pk = self.kwargs.get('pk')
 #         post = Post.objects.get(pk=pk)
 #         user = self.request.user
@@ -60,9 +45,24 @@ class PostLikeToggle(RedirectView):
 #                 post.likes.remove(user.profile)
 #             else:
 #                 post.likes.add(user.profile)
-#                 flag:bool = True
-#         print('FLAG :', flag)
-#         return JsonResponse(json.dumps({'flag': flag}))
+#         return post.get_absolute_url()
+
+
+class PostLikeToggle(View):
+    def get(self, request, *args, **kwargs):
+        print("PostLikeJson ....")
+        flag:bool = False
+        pk = self.kwargs.get('pk')
+        post = Post.objects.get(pk=pk)
+        user = self.request.user
+        if user.is_authenticated:
+            if user.profile in post.likes.all():
+                post.likes.remove(user.profile)
+            else:
+                post.likes.add(user.profile)
+                flag:bool = True
+        print('FLAG :', flag)
+        return HttpResponse('seccess like ...')
 
 
 

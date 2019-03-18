@@ -11,7 +11,7 @@
             <div class="like_container_detail">
             <p class="post_like_count">{{post.likes.count}}
                     <!-- <a class="a_like" href="{{post.get_like_url}}"> -->
-                    <a class="a_like" href="{{post.get_like_url}}">
+                    <a id='a_link' class="a_like" href="{{post.get_like_url}}">
                         {% if user.profile in post.likes.all %}
                             <img src="{% static 'img/likeBGRED.png' %}" alt="">
                         {% else %}
@@ -83,7 +83,19 @@
 <script type="text/javascript">
     $(function() {
 
+            $('#a_link').click((e)=> {
+                e.preventDefault();
+                var a_href = $(this).find('#a_link').attr('href');
+                console.log("CLICK LIKE ...");
+                $.ajax({
+                    url: a_href,
+                    type: "GET",
+                    success: function(data) {
+                        console.log('success ....')
+                    }
+                })
 
+            })
 
 
             let loc = window.location;
