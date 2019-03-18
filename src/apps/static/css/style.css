@@ -573,21 +573,21 @@ body {
 }
 
 /* Masonry on medium-sized screens */
-@media only screen and (max-width: 1023px) and (min-width: 739px) {
+@media only screen and (max-width: 1023px) and (min-width: 880px) {
   .masonry {
     column-count: 3;
   }
 }
 
 /* Masonry on small screens */
-@media only screen and (max-width: 740px) and (min-width: 540px) {
+@media only screen and (max-width: 879px) and (min-width: 590px) {
   .masonry {
     column-count: 2;
   }
 }
 
 
-@media only screen and (max-width: 540px) and (min-width: 320px) {
+@media only screen and (max-width: 589px) and (min-width: 320px) {
   .masonry {
     column-count: 1;
   }

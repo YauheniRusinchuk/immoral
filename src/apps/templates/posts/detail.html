@@ -8,20 +8,22 @@
 
         <div class="detail_post_container">
             {% include 'back.html' %}
-            <div class="like_container_detail">
-            <p class="post_like_count">{{post.likes.count}}</p>
-            <div class="a_link_container">
-                <a id='a_link' class="a_like" href="{{post.get_like_url}}">
-                    <div id="img_likes">
-                    {% if user.profile in post.likes.all %}
-                        <img src="{% static 'img/likeBGRED.png' %}" alt="">
-                    {% else %}
-                        <img src="{% static 'img/likeBG.png' %}" alt="">
-                    {% endif %}
-                    </div>
-                </a>
-            </div>
-            </div>
+            {% if user.is_authenticated %}
+                <div class="like_container_detail">
+                    <p class="post_like_count">{{post.likes.count}}</p>
+                <div class="a_link_container">
+                    <a id='a_link' class="a_like" href="{{post.get_like_url}}">
+                        <div id="img_likes">
+                        {% if user.profile in post.likes.all %}
+                            <img src="{% static 'img/likeBGRED.png' %}" alt="">
+                        {% else %}
+                            <img src="{% static 'img/likeBG.png' %}" alt="">
+                        {% endif %}
+                        </div>
+                    </a>
+                </div>
+                </div>
+            {% endif %}
             <div class="detail_post_user">
                 {% if post.profile.img %}
                     <img src="{{post.profile.img.url}}" width="50px" height="50px" alt="">
