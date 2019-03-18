@@ -10,13 +10,17 @@
             {% include 'back.html' %}
             <div class="like_container_detail">
             <p class="post_like_count">{{post.likes.count}}</p>
-            <a id='a_link' class="a_like" href="{{post.get_like_url}}">
-                {% if user.profile in post.likes.all %}
-                    <img src="{% static 'img/likeBGRED.png' %}" alt="">
-                {% else %}
-                    <img src="{% static 'img/likeBG.png' %}" alt="">
-                {% endif %}
-            </a>
+            <div class="a_link_container">
+                <a id='a_link' class="a_like" href="{{post.get_like_url}}">
+                    <div id="img_likes">
+                    {% if user.profile in post.likes.all %}
+                        <img src="{% static 'img/likeBGRED.png' %}" alt="">
+                    {% else %}
+                        <img src="{% static 'img/likeBG.png' %}" alt="">
+                    {% endif %}
+                    </div>
+                </a>
+            </div>
             </div>
             <div class="detail_post_user">
                 {% if post.profile.img %}
@@ -81,6 +85,9 @@
 <script type="text/javascript">
     $(function() {
 
+            let like_true = `<img src="{% static 'img/likeBGRED.png' %}" alt="" />`
+            let like_false = `<img src="{% static 'img/likeBG.png' %}" alt="" />`
+
             $('#a_link').click((e)=> {
                 e.preventDefault();
                 var a_href = $(this).find('#a_link').attr('href');
@@ -94,9 +101,12 @@
                         if(dataFlag['flag']) {
                             count_like++;
                             $('.post_like_count').text(String(count_like));
+                            $('#img_likes').empty().append(like_true);
+
                         }else{
                             count_like--;
                             $('.post_like_count').text(String(count_like));
+                            $('#img_likes').empty().append(like_false);
                         }
                     }
                 })
