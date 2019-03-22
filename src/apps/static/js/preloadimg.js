@@ -25,14 +25,22 @@ $(function(){
                 var reader = new FileReader();
                 reader.onload = function(event) {
                     $($.parseHTML('<img>')).attr('src', event.target.result).appendTo(placeToInsertImagePreview);
+
                 }
                 reader.readAsDataURL(input.files[i]);
             }
         }
     };
 
+
+
+
+
     $('#file').on('change', function() {
         imagesPreview(this, 'div.result_upload_img');
     });
+
+
+
 
 })

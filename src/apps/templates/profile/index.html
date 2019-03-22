@@ -3,6 +3,7 @@
 
 {% block content %}
 <div class="main_container">
+    {% include 'scroll.html' %}
     <div class="profile_info_container">
         <div class="profile_avatar">
             {% if profile.img %}
@@ -102,5 +103,5 @@
     </div>
 
 </div>
-
+<script src="{% static 'js/scroll.js' %}"></script>
 {% endblock %}

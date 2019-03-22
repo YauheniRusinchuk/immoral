@@ -1,7 +1,10 @@
 $(function(){
 
 
+
     $(".rslides").responsiveSlides();
+
+
 
 
 
